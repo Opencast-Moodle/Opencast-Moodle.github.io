@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>About - Opencast Moodle plugins documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/extra.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Opencast block plugin", url: "#_top", children: [
+              {title: "Installation", url: "#installation" },
+              {title: "Requirements", url: "#requirements" },
+              {title: "Configuration", url: "#configuration" },
+              {title: "Capabilities", url: "#capabilities" },
+              {title: "Logging", url: "#logging" },
+              {title: "Placement", url: "#placement" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../general_settings/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../general_settings/" class="btn btn-xs btn-link">
+        General Settings
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../tool/settings/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../tool/settings/" class="btn btn-xs btn-link">
+        Settings
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="opencast-block-plugin">Opencast block plugin</h1>
+<p>This block can be used to link Moodle courses to Opencast series. Users with respective privileges (in the following called instructors) can use this block to upload videos via Moodle to Opencast. These videos are transmitted to the Opencast system by the cronjob and create an event in the respective series there.</p>
+<p>The block can be used to automatically set the access privileges of moodle users enrolled in the course. All events belonging to the series are displayed in the block. This way, the instructors get an overview of all recorded lectures as well as planned ones. Further, if setup correctly, the instructors are able to restrict the visibility to moodle groups or prevent access by students at all.</p>
+<h2 id="installation">Installation</h2>
+<p>The Opencast block plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-block_opencast/releases">GitHub</a> as well as from the <a href="https://moodle.org/plugins/block_opencast">Moodle plugins directory</a>.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Min. Moodle Version: 3.3</li>
+<li>Opencast API level:</li>
+<li>Minimum: v1.0.0</li>
+<li>Recommended: v1.1.0<ul>
+<li>Some features might do not works as expected, when using an older API level.</li>
+</ul>
+</li>
+<li>Installed Opencast api tool.</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<p>The configuration of the block is split up into three sections:</p>
+<ul>
+<li><a href="../general_settings/">General settings</a></li>
+<li><a href="../appearance/">Appearance</a></li>
+<li><a href="../additional_features/">Additional features</a></li>
+</ul>
+<h2 id="capabilities">Capabilities</h2>
+<p>There are additional capabilities, with which you can control the access to the features of the block.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Role in default configuration</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block/opencast:addvideo</td>
+<td>editingteacher, manager</td>
+<td>Add a video via moodle to opencast.</td>
+</tr>
+<tr>
+<td>block/opencast:viewunpublishedvideos</td>
+<td>editingteacher, manager</td>
+<td>View the list of all videos of the course, which are available in opencast (even not published ones)</td>
+</tr>
+<tr>
+<td>block/opencast:defineseriesforcourse</td>
+<td>manager</td>
+<td>Change the series ID which is associated with the block instance or rather course</td>
+</tr>
+<tr>
+<td>block/opencast:createseriesforcourse</td>
+<td>manager</td>
+<td>Create a new series if block/course is not yet associated with one</td>
+</tr>
+<tr>
+<td>block/opencast:deleteevent</td>
+<td>editingteacher, manager</td>
+<td>Allows to delete a video as specified above.</td>
+</tr>
+<tr>
+<td>block/opencast:unassignevent</td>
+<td>-</td>
+<td>Allows to unassign a video from the series of the course as specified above.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logging">Logging</h2>
+<p>The execution of upload jobs are being logged, which can be viewed at <em>Site administration</em>-&gt;<em>Reports</em>-&gt;<em>Logs</em>.
+View the setting "Site Errors" instead of "All activities" you can view only those upload jobs, which failed.    </p>
+<h2 id="placement">Placement</h2>
+<p>This plugin is designed as block and, to be used, it will be initially added to a Moodle course by a teacher. The block shows a quick overview over the videos which are uploaded in the block, but mainly links to a fullscreen overview page where the full functionality of the plugin is provided.</p>
+<p>If you want to provide the plugin in every course by default without requiring that the teachers adds it to the course, please have a look at Moodle core's $CFG-&gt;defaultblocks setting which is set in config.php only and which is described on https://github.com/moodle/moodle/blob/master/config-dist.php.</p>
+<p>As an alternative to placing the block by default, you might also want to add a link to the plugin's overview page to the Boost nav drawer. This plugin does not offer support for adding a Boost nav drawer item itself, but we would like to reference the https://moodle.org/plugins/local_boostnavigation plugin for this job.
+After installing local_boostnavigation to your Moodle instance, please add the following line to the <code>local_boostnavigation | insertcustomcoursenodesusers</code> setting:</p>
+<pre><code>Opencast Videos|/blocks/opencast/index.php?courseid={courseid}|||editingteacher,manager|admin|OR|fa-film|opencast|grades
+</code></pre>
+<p>Please take extra care that the <code>editingteacher,manager</code> list of roles should match the list of roles who are given the <code>block/opencast:addvideo</code> capability in your Moodle instance.
+After adding the Boost nav drawer item, you can also remove the <code>block/opencast:addinstance</code> capability from all roles as adding the block is not really necessary anymore.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../general_settings/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../general_settings/" class="btn btn-xs btn-link">
+        General Settings
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../tool/settings/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../tool/settings/" class="btn btn-xs btn-link">
+        Settings
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/Opencast-Moodle/documentation/edit/master/docs/block/about.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

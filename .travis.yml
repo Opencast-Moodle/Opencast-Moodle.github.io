@@ -1,0 +1,11 @@
+virt: lxd
+os: linux
+dist: focal
+language: python
+python: "3.8"
+
+install:
+  - pip -q install mkdocs mkdocs-windmill
+script:
+  - shellcheck build.sh
+  - sh build.sh

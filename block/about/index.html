@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>About - Opencast Moodle plugins documentation</title>
+    <title>About - Opencast Moodle Plugins Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -89,19 +89,21 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="opencast-block-plugin">Opencast block plugin</h1>
 <p>This block can be used to link Moodle courses to Opencast series. Users with respective privileges (in the following called instructors) can use this block to upload videos via Moodle to Opencast. These videos are transmitted to the Opencast system by the cronjob and create an event in the respective series there.</p>
-<p>The block can be used to automatically set the access privileges of moodle users enrolled in the course. All events belonging to the series are displayed in the block. This way, the instructors get an overview of all recorded lectures as well as planned ones. Further, if setup correctly, the instructors are able to restrict the visibility to moodle groups or prevent access by students at all.</p>
+<p>The block can be used to automatically set the access privileges of Moodle users enrolled in the course. All events belonging to the series are displayed in the block. This way, the instructors get an overview of all recorded lectures as well as planned ones. Further, if setup correctly, the instructors are able to restrict the visibility to Moodle groups or prevent access by students at all.</p>
 <h2 id="installation">Installation</h2>
 <p>The Opencast block plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-block_opencast/releases">GitHub</a> as well as from the <a href="https://moodle.org/plugins/block_opencast">Moodle plugins directory</a>.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li>Min. Moodle Version: 3.3</li>
-<li>Opencast API level:</li>
+<li>Opencast API level:<ul>
 <li>Minimum: v1.0.0</li>
 <li>Recommended: v1.1.0<ul>
 <li>Some features might do not works as expected, when using an older API level.</li>
 </ul>
 </li>
-<li>Installed Opencast api tool.</li>
+</ul>
+</li>
+<li>Installed Opencast API tool.</li>
 </ul>
 <h2 id="configuration">Configuration</h2>
 <p>The configuration of the block is split up into three sections:</p>
@@ -124,7 +126,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <tr>
 <td>block/opencast:addvideo</td>
 <td>editingteacher, manager</td>
-<td>Add a video via moodle to opencast.</td>
+<td>Add a video via Moodle to opencast.</td>
 </tr>
 <tr>
 <td>block/opencast:viewunpublishedvideos</td>

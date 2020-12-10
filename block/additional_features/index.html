@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Additional features - Opencast Moodle plugins documentation</title>
+    <title>Additional features - Opencast Moodle Plugins Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -33,7 +33,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Additional features", url: "#_top", children: [
+          {title: "Additional Features", url: "#_top", children: [
               {title: "Settings for the chunkuploader", url: "#settings-for-the-chunkuploader" },
               {title: "Opencast studio", url: "#opencast-studio" },
               {title: "Control episode visibility", url: "#control-episode-visibility" },
@@ -85,7 +85,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="additional-features">Additional features</h1>
+    <h1 id="additional-features">Additional Features</h1>
 <p>In the additional features you can configure the access to Opencast Studio as well as for LTI activities.</p>
 <h2 id="settings-for-the-chunkuploader">Settings for the chunkuploader</h2>
 <p>If you also have the chunkuploader installed you configure it in this section.</p>
@@ -94,7 +94,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><strong>Video size limit:</strong> Limit the file size of uploaded videos through the chunkupload. The default is 2GB.</li>
 </ul>
 <h2 id="opencast-studio">Opencast studio</h2>
-<p>In this section you can enable the feature to add <a href="https://docs.opencast.org/develop/admin/#modules/studio/">Opencast Studio</a> support to the block. For this to work Opencast Studio needs to be running on the admin node and <a href="https://docs.opencast.org/develop/admin/#modules/ltimodule/">LTI</a> needs to be enabled. Furthermore LTI users need to be allowed to access Opencast Studio, for this they need the additonal role ´ROLE_STUDIO´. The options are:</p>
+<p>In this section you can enable the feature to add <a href="https://docs.opencast.org/develop/admin/#modules/studio/">Opencast Studio</a> support to the block. For this to work Opencast Studio needs to be running on the admin node and <a href="https://docs.opencast.org/develop/admin/#modules/ltimodule/">LTI</a> needs to be enabled. Furthermore LTI users need to be allowed to access Opencast Studio, for this they need the additional role ´ROLE_STUDIO´. The options are:</p>
 <ul>
 <li><strong>Show the link to opencast studio:</strong> This option renders a button to opencast studio in the block content and the block overview. Opencast studio has to run on your opencast admin node and the following LTI settings have to be configured as well. Defaults to no.</li>
 <li><strong>Consumer key:</strong> LTI Consumer key for the opencast studio integration.</li>
@@ -114,7 +114,7 @@ To be able to use this feature, you have to create a preconfigured LTI tool for 
 <p>For the preconfigured LTI tool the following settings need to be set:</p>
 <ul>
 <li><strong>Tool name:</strong> The name of the preconfigured LTI tool. For example: Opencast Series</li>
-<li><strong>Tool URL:</strong> The URL of the Opencast presentation server follwed by <code>/lti</code>. For example: <code>https://develop.opencast.org/lti</code></li>
+<li><strong>Tool URL:</strong> The URL of the Opencast presentation server followed by <code>/lti</code>. For example: <code>https://develop.opencast.org/lti</code></li>
 <li><strong>Consumer key:</strong> The LTI consumer key.</li>
 <li><strong>Shared secret:</strong> The LTI shared secret.</li>
 <li><strong>Custom parameters:</strong> <code>tool=ltitools/series/index.html</code></li>
@@ -134,7 +134,7 @@ To be able to use this feature, you have to create a preconfigured LTI tool for 
 <p>For the preconfigured LTI tool the following settings need to be set:</p>
 <ul>
 <li><strong>Tool name:</strong> The name of the preconfigured LTI tool. For example: Opencast Episodes</li>
-<li><strong>Tool URL:</strong> The URL of the Opencast presentation server follwed by <code>/lti</code>. For example: <code>https://develop.opencast.org/lti</code></li>
+<li><strong>Tool URL:</strong> The URL of the Opencast presentation server followed by <code>/lti</code>. For example: <code>https://develop.opencast.org/lti</code></li>
 <li><strong>Consumer key:</strong> The LTI consumer key.</li>
 <li><strong>Shared secret:</strong> The LTI shared secret.</li>
 <li><strong>Custom parameters:</strong> <code>tool=paella/ui/watch.html</code> or <code>tool=theodul/ui/core.html</code></li>

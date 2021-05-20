@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Import Videos Features - Opencast Moodle Plugins Documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/extra.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Import Videos Features", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+
+    <h1 id="import-videos-features">Import Videos Features</h1>
+<p>In this section the backup and restore workflow can be configured. 
+However, the default Opencast workflows do not support this feature. 
+To be able to use this feature two additional workflows need to be added to Opencast. 
+One workflow to duplicate an event in Opencast and another workflow to publish this duplicate. 
+With the default Opencast workflows the <a href="../backup_restore_workflows/">example workflows</a> can be used.</p>
+<ul>
+<li><strong>Workflow for duplicating events:</strong> This workflow is needed for restoring opencast events from one course into another. 
+  If not set, it is not possible to restore Opencast events. 
+  A block instance might be restore, but without a series and without events. 
+  In this dropdown menu only workflows with the <code>api</code> tag can be selected.</li>
+</ul>
+<p>If a valid duplication workflow is selected, the following configurations are available:</p>
+<ul>
+<li><strong>Allow video import within moodle core course import wizard:</strong> If enabled, teachers can import existing video files from other Moodle courses to their Moodle course by using the Moodle core course import wizard. Within the wizard, there is an additional option shown to import the videos which have been uploaded within the Opencast block in the other course. Using this feature, the teacher can import all videos from another course as bulk, but he cannot select individual videos.
+  The videos are duplicated in Opencast by an ad-hoc task in Moodle and will show up in the course's video list with a short delay.</li>
+<li><strong>Allow manual video import:</strong> If enabled, teachers can import existing video files from other Moodle courses to their Moodle course by using a dedicated Opencast video import wizard. This feature is offered on the Opencast block overview page. Using this feature, the teacher can import all or a subset of videos from another course as bulk.
+  The videos which are selected within the import wizard are duplicated in Opencast by an ad-hoc task in Moodle and will show up in the course's video list with a short delay.</li>
+<li><strong>Handle Opencast LTI series modules during manual video import:</strong> If enabled, teachers can handle Opencast series modules which were created with the "Add LTI series module" feature and which relate to the videos which are imported. This especially cleans up modules which have been imported from one course to another course but which still link to the course series of the old course. The series module is instantly handled after the import wizard is finished.</li>
+<li><strong>Handle Opencast LTI episode modules during manual video import:</strong> If enabled, teachers can handle Opencast episode modules which were created with the "Add LTI episode module" feature and which relate to the videos which are imported. This especially cleans up modules which have been imported from one course to another course but which still link to videos in the old course. The episode modules are handled by an ad-hoc task in Moodle and will be fixed in the course with a short delay.</li>
+</ul>
+
+  <br>
+    
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/Opencast-Moodle/documentation/edit/master/docs/block/import_videos_features.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

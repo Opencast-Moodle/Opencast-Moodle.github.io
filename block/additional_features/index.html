@@ -35,9 +35,10 @@
         var pageToc = [
           {title: "Additional Features", url: "#_top", children: [
               {title: "Settings for the chunkuploader", url: "#settings-for-the-chunkuploader" },
-              {title: "Opencast studio", url: "#opencast-studio" },
+              {title: "Opencast studio integration", url: "#opencast-studio-integration" },
               {title: "Control episode visibility", url: "#control-episode-visibility" },
-              {title: "Add Opencast LTI modules to courses", url: "#add-opencast-lti-modules-to-courses" },
+              {title: "Opencast activity modules", url: "#opencast-activity-modules" },
+              {title: "Additional features", url: "#additional-features_1" },
           ]},
         ];
 
@@ -86,14 +87,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="additional-features">Additional Features</h1>
-<p>In the additional features you can configure the access to Opencast Studio as well as for LTI activities.</p>
+<p>In the additional features you can configure the access to Opencast Studio, the visibility of episodes, the activity module settings as well as some other features.</p>
 <h2 id="settings-for-the-chunkuploader">Settings for the chunkuploader</h2>
 <p>If you also have the chunkuploader installed you configure it in this section.</p>
 <ul>
 <li><strong>Enable Chunkupload:</strong> If Chunkupload is enabled it will be possible to upload videos using the chunkupload plugin. Defaults to yes.</li>
 <li><strong>Video size limit:</strong> Limit the file size of uploaded videos through the chunkupload. The default is 2GB.</li>
 </ul>
-<h2 id="opencast-studio">Opencast studio</h2>
+<h2 id="opencast-studio-integration">Opencast studio integration</h2>
 <p>In this section you can enable the feature to add <a href="https://docs.opencast.org/develop/admin/#modules/studio/">Opencast Studio</a> support to the block. For this to work Opencast Studio needs to be running on the admin node and <a href="https://docs.opencast.org/develop/admin/#modules/ltimodule/">LTI</a> needs to be enabled. Furthermore LTI users need to be allowed to access Opencast Studio, for this they need the additional role ´ROLE_STUDIO´. The options are:</p>
 <ul>
 <li><strong>Show the link to opencast studio:</strong> This option renders a button to opencast studio in the block content and the block overview. Opencast studio has to run on your opencast admin node and the following LTI settings have to be configured as well. Defaults to no.</li>
@@ -107,45 +108,27 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><strong>Allow episode visibility control after processing:</strong> If enabled, teachers can control the visibility of an Opencast episode after the episode has been processed in Opencast. Defaults to yes.</li>
 <li><strong>Allow episode group restriction:</strong> If enabled, teachers can not only control the visibility of an Opencast episode for all course users but can also restrict the visibility to particular course groups. Defaults to yes.</li>
 </ul>
-<h2 id="add-opencast-lti-modules-to-courses">Add Opencast LTI modules to courses</h2>
-<h3 id="series">Series</h3>
-<p>In this section you can enable a feature to let teachers add an Opencast <a href="https://docs.opencast.org/develop/admin/#modules/ltimodule/">LTI</a> series module to the course. This requires that LTI is configured in Opencast. This LTI series module will be pointing to the course's Opencast series.
-To be able to use this feature, you have to create a preconfigured LTI tool for showing Opencast series first.</p>
-<p>For the preconfigured LTI tool the following settings need to be set:</p>
+<h2 id="opencast-activity-modules">Opencast activity modules</h2>
+<p>If you also have the Opencast Video Provider activity installed, you can configure it in this section.</p>
 <ul>
-<li><strong>Tool name:</strong> The name of the preconfigured LTI tool. For example: Opencast Series</li>
-<li><strong>Tool URL:</strong> The URL of the Opencast presentation server followed by <code>/lti</code>. For example: <code>https://develop.opencast.org/lti</code></li>
-<li><strong>Consumer key:</strong> The LTI consumer key.</li>
-<li><strong>Shared secret:</strong> The LTI shared secret.</li>
-<li><strong>Custom parameters:</strong> <code>tool=ltitools/series/index.html</code></li>
+<li><strong>Enable Opencast activity:</strong> If enabled, teachers can add an activity for the series to the course.</li>
+<li><strong>Default activity title:</strong> Default title that is used when a new Opencast activity is added to a course.</li>
+<li><strong>Add series module intro:</strong> If enabled, teachers can add a description to the Opencast activity series module that is shown on the course overview page.</li>
+<li><strong>Choose series module section:</strong> If enabled, teachers can choose the section which the Opencast Activity series module will be added to.</li>
+<li><strong>Set series module availability:</strong> If enabled, teachers can set the availability conditions when a new Opencast LTI series module is added to a course.</li>
+<li><strong>Enable Opencast activity for episodes:</strong> If enabled, teachers can add activities for episodes to the course.</li>
+<li><strong>Add episode module intro:</strong> If enabled, teachers can add a description to the Opencast activity episode module that is shown on the course overview page.</li>
+<li><strong>Choose episode module section:</strong> If enabled, teachers can choose the section which the Opencast Activity episode module will be added to.</li>
+<li><strong>Set episode module availability:</strong> If enabled, teachers can set the availability conditions when a new Opencast Activity episode module is added to a course.</li>
 </ul>
-<p>In the plugin the settings options are:</p>
+<p>For the availability features, the <em>Enable restricted access</em> feature must be activated in the global settings.</p>
+<h2 id="additional-features_1">Additional features</h2>
+<p>In this section, unrelated configurations are collected.</p>
 <ul>
-<li><strong>Enable ”Add LTI series module":</strong> If enabled, teachers can add an Opencast LTI series module to a course. This LTI series module will be pointing to the course's Opencast series. The default is no.</li>
-<li><strong>Default LTI series module title:</strong> The default title to be used when a new Opencast LTI series module is added to a course.</li>
-<li><strong>Preconfigured LTI tool for series modules:</strong> The preconfigured LTI tool to be used when a new Opencast LTI series module is added to a course.</li>
-<li><strong>Add series module intro:</strong> If enabled, teachers can add an intro to the Opencast LTI series module. This intro will be shown on the course overview page.</li>
-<li><strong>Choose series module section:</strong> If enabled, teachers can choose the section which the Opencast LTI series module will be added to.</li>
-<li><strong>Set series module availability:</strong> If enabled, teachers can set the availability conditions when a new Opencast LTI series module is added to a course. Please note: This feature is only available if availability is globally enabled on the Advanced features admin setting page.</li>
-</ul>
-<h3 id="episode">Episode</h3>
-<p>You can also enable a feature to let teachers add Opencast <a href="https://docs.opencast.org/develop/admin/#modules/ltimodule/">LTI</a> episode modules to the course. This requires that LTI is configured in Opencast. These LTI episode modules will be pointing to an Opencast episode.
-To be able to use this feature, you have to create a preconfigured LTI tool for showing Opencast episodes first.</p>
-<p>For the preconfigured LTI tool the following settings need to be set:</p>
-<ul>
-<li><strong>Tool name:</strong> The name of the preconfigured LTI tool. For example: Opencast Episodes</li>
-<li><strong>Tool URL:</strong> The URL of the Opencast presentation server followed by <code>/lti</code>. For example: <code>https://develop.opencast.org/lti</code></li>
-<li><strong>Consumer key:</strong> The LTI consumer key.</li>
-<li><strong>Shared secret:</strong> The LTI shared secret.</li>
-<li><strong>Custom parameters:</strong> <code>tool=paella/ui/watch.html</code> or <code>tool=theodul/ui/core.html</code></li>
-</ul>
-<p>In the plugin the settings options are:</p>
-<ul>
-<li><strong>Enable ”Add LTI episode module":</strong> If enabled, teachers can add an Opencast LTI episode module to a course. This LTI episode module will be pointing to an Opencast episode. The default is no.</li>
-<li><strong>Preconfigured LTI tool for episode modules:</strong> The preconfigured LTI tool to be used when a new Opencast LTI episode module is added to a course.</li>
-<li><strong>Add episode module intro:</strong> If enabled, teachers can add a intro to the Opencast LTI episode module. This intro will be shown on the course overview page.</li>
-<li><strong>Choose episode module section:</strong> If enabled, teachers can choose the section which the Opencast LTI episode module will be added to.</li>
-<li><strong>Set episode module availability:</strong> If enabled, teachers can set the availability conditions when a new Opencast LTI episode module is added to a course. Please note: This feature is only available if availability is globally enabled on the Advanced features admin setting page.</li>
+<li><strong>Download channel:</strong> If not empty, teachers can download processed videos. The video files are served from the specified Opencast channel.</li>
+<li><strong>Workflow tag:</strong> Tag for Opencast workflow definitions that can be configured and started by teachers.</li>
+<li><strong>Support email:</strong> If not empty, teachers can report problems for their uploaded videos. An email with technical information as well as a message entered by the teachers is sent to this support email address.</li>
+<li><strong>Terms of use:</strong> If not empty, a checkbox with the terms of use will appear on the "Video upload" page. Teachers must accept the entered terms of use before they can upload a video.</li>
 </ul>
 
   <br>

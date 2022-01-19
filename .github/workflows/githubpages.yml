@@ -27,4 +27,6 @@ jobs:
         run: pip -q install mkdocs mkdocs-windmill
 
       - name: Run build script
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: sh build.sh

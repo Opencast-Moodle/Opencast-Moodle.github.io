@@ -3,6 +3,10 @@
 name: Deployment
 
 on:
+  push:
+    branches:
+      - main
+      
   schedule:
     - cron:  '00 2 * * *'
 

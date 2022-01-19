@@ -1,0 +1,29 @@
+# Daily workflow for deploying the documentation to GitHub pages.
+
+name: Deployment
+
+on:
+  schedule:
+    - cron:  '00 2 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2.3.1
+        with:
+          python-version: 3.9
+
+      - name: Install python dependencies
+        run: pip -q install mkdocs mkdocs-windmill
+
+      - name: Run build script
+        run: sh build.sh

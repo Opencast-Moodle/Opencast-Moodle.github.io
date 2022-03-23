@@ -72,13 +72,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="settings">Settings</h1>
-<p>For the Opencast filter to work you need to configure <a href="https://docs.opencast.org/develop/admin/#modules/ltimodule/">LTI</a> in your Opencast server.</p>
-<p>The configuration options are:</p>
+<p>There are only two settings for the Opencast filter.</p>
+<p><img alt="Filter opencast configuration" src="../../img/filter_config.png" /></p>
 <ul>
-<li><strong>Consumer key:</strong> The LTI consumer key.</li>
-<li><strong>Consumer secret:</strong> The LTI consumer secret.</li>
-<li><strong>URL of the Opencast Engage server:</strong> The full URL of your Opencast presentation server. For example: <code>https://develop.opencast.org</code></li>
-<li><strong>URL of the Opencast player:</strong> Relative URL of the Opencast player, e.g. <code>/paella/ui/watch.html</code> or <code>/theodul/ui/core.html</code>.</li>
+<li><strong>URL templates for filtering:</strong> URLs matching this template are replaced with the Opencast player. 
+To define the correct URL, you should check which URL is inserted into a text by the repository. In general, you must define only one URL. In the URL, you must use the placeholder [EPISODEID] to indicate where the episode ID is contained in the URL, e.g. <code>http://stable.opencast.de/play/[EPISODEID]</code>.</li>
+<li><strong>URL to Paella config.json:</strong> Define an absolute or relative URL to the <code>config.json</code> that is used by the Paella Player. This config can be adapted if you want to modify the look or behavior of the Paella player.</li>
 </ul>
 <p>Once you configured the filter you need to activate the filter.</p>
 

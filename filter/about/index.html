@@ -34,7 +34,6 @@
         
         var pageToc = [
           {title: "Opencast filter plugin", url: "#_top", children: [
-              {title: "Installation", url: "#installation" },
               {title: "Requirements", url: "#requirements" },
               {title: "Configuration", url: "#configuration" },
           ]},
@@ -85,14 +84,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="opencast-filter-plugin">Opencast filter plugin</h1>
-<p>The opencast filter can be used to embed opencast videos. Tested opencast players are Paella or Theodul.</p>
-<p><strong>Notice:</strong> This plugin is work in progress and currently only works with the Atto editor.</p>
-<h2 id="installation">Installation</h2>
-<p>The Opencast repository plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-filter_opencast">GitHub</a>.</p>
+<p>The opencast filter can be used to embed opencast videos.
+The filter takes the HTML pasted by the opencast repository and replaces it by an iframe, which loads the <a href="https://paellaplayer.upv.es/">Paella Player 7</a> with the respective opencast event.
+The filter itself has no influence on the embedded content, but simply takes the information created by the repository.
+Look into the documentation of <a href="https://github.com/Opencast-Moodle/moodle-repository_opencast">repository_opencast</a> for details on that.</p>
+<p><img alt="Filter opencast demonstration" src="../../img/filter.png" /></p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>Installed Opencast API tool.</li>
-<li>Installed Opencast repository plugin.</li>
+<li><a href="https://github.com/Opencast-Moodle/moodle-tool_opencast">tool_opencast</a></li>
+<li><a href="https://github.com/Opencast-Moodle/moodle-mod_opencast">mod_opencast</a></li>
+<li><a href="https://github.com/Opencast-Moodle/moodle-repository_opencast">repository_opencast</a>: The filter can be installed without the repository
+  but it is necessary to enable teachers to insert opencast videos.</li>
 </ul>
 <h2 id="configuration">Configuration</h2>
 <p>The configuration of this filter is documented in the <a href="../settings/">settings</a> page.</p>

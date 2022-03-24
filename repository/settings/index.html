@@ -34,8 +34,7 @@
         
         var pageToc = [
           {title: "Settings", url: "#_top", children: [
-              {title: "General settings", url: "#general-settings" },
-              {title: "Repositories instances of the site", url: "#repositories-instances-of-the-site" },
+              {title: "Publication channels", url: "#publication-channels" },
           ]},
         ];
 
@@ -84,35 +83,23 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="settings">Settings</h1>
-<p>In the settings of the repository plugin the repository instances can configured.</p>
-<h2 id="general-settings">General settings</h2>
-<ul>
-<li><strong>Allow users to add a repository instance into the course</strong></li>
-<li><strong>Allow users to add a repository instance into the user context</strong></li>
-</ul>
-<h2 id="repositories-instances-of-the-site">Repositories instances of the site</h2>
-<p>Note that the repository is only available within a text editor and will paste the URL to the resource into the content. This URL will later be replaced via a Moodle filter to show an embedded player. There are two different possibilities:</p>
-<ul>
-<li>
-<p><strong>Display a video using the Moodle media filter:</strong></p>
-<p>The repository can embed a link to the media file of the Opencast event. This link will automatically be replaced by the Moodle media filter. Be aware that by default Opencast does not protect links to published files in any way. Thus, this link can be easily shared between students, who might not have access to the course itself.
-* <strong>Display a video using an Opencast player:</strong></p>
-<p>The repository can paste a link to the course content, which leads to a page at which an embeddable Opencast player is provided. For this scenario, you will need the <a href="../../filter/about/">Opencast filter</a> plugin as well as an Opencast instance with <a href="https://docs.opencast.org/develop/admin/modules/ltimodule/">configured LTI</a>. The filter will replace the link by an iFrame, which displays the Opencast player. In order for this to work, the selected publication channel of the repository instance has to serve the URL to the player within the publication URL. Additionally, the filter will automatically authenticate the user in Opencast using LTI. This way, some kind of resource protection is provided.
-However, for increased protection, you would need to activate <a href="https://docs.opencast.org/develop/admin/configuration/stream-security/">stream security</a> in Opencast.</p>
-</li>
-</ul>
-<p>In this section you see a table of the configured repository instances. You can add instances as well as configure and delete instances.</p>
-<p>The possible options per repository instance are:</p>
+<p>In the settings of the repository plugin the repository instances can configured.
+The possible options per repository instance are:</p>
 <ul>
 <li><strong>Name:</strong> Name of the repository instance.</li>
-<li><strong>Opencast default author</strong></li>
-<li><strong>Opencast channelid</strong>: The channel id of the publication in Opencast. With a default Opencast installation you can use <code>engage-player</code>.</li>
-<li><strong>Preferred flavor to get thumbnail</strong>: The flavor for the thumbnail. Leave empty for the Opencast default.</li>
-<li><strong>Fallback flavor to get thumbnail</strong></li>
-<li><strong>Embedd URL to player instead of media file.</strong> Whether the URL to the Opencast player should be embedded. If this box is not checked a direct link to a video file will be embedded.</li>
+<li><strong>Opencast instance:</strong> The Opencast instance from which the repository retrieves videos.</li>
+<li><strong>Opencast default author:</strong> The default author that is displayed for a video if the creator is not given. Empty by default.</li>
+<li><strong>Opencast channelid:</strong>: The channel id of the publication in Opencast. With a default Opencast installation you can use <code>engage-player</code>.</li>
+<li><strong>Preferred flavor to get thumbnail:</strong>: The flavor for the thumbnail. Leave empty for the Opencast default.</li>
+<li><strong>Fallback flavor to get thumbnail:</strong> Fallback flavor for the thumbnail if there is no thumbnail for the preferred flavor.</li>
+<li><strong>Embedd URL to player instead of media file.</strong> Whether the URL to the Opencast player should be embedded. If this box is not checked, a direct link to a video file will be embedded.</li>
 <li><strong>Flavor to get video:</strong> The flavor of the video. Leave empty to use the Opencast default.</li>
 </ul>
 <h3 id="publication-channels">Publication channels</h3>
+<p>Opencast publishes its events in so called publication channels.
+One default publication channel is e.g. the <code>engage-player</code> channel.
+Each publication has a publication URL, which points to the page under which the video is published (e.g. an HTTP page with the Opencast player).
+Additionally, publications can contain a set of media data with URLs to the media files themselves (e.g. an MP4 file).</p>
 <p>For the configuration of the publication channel you can either use the default publication channel <code>engage-player</code> or use your own publication channel. To use your own publication channel you will have to modify the publish workflow and add a <code>publish-configure</code> operation. For example:</p>
 <pre><code>&lt;operation
   id=&quot;publish-configure&quot;

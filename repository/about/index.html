@@ -85,13 +85,18 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="opencast-repository-plugin">Opencast repository plugin</h1>
-<p>The repository plugin serves as a way to embed videos of your Opencast system into a Moodle course.</p>
-<p><strong>Notice:</strong> This plugin is work in progress and currently only works with the Atto editor.</p>
+<p>The plugin allows teachers to embed Opencast videos into a course.
+The repository displays all videos that belong to the Opencast series that are connected to the course. 
+The repository is only available within a text editor and will paste the URL to the resource into the content.
+This URL will later be replaced via a Moodle filter to show an embedded player. The repository works best in combination with the <a href="../../filter/about/">Opencast filter</a> plugin. The filter will replace the link with an iFrame, which displays the Paella player.</p>
+<p><img alt="Repository opencast demonstration" src="../../img/repository.png" /></p>
 <h2 id="installation">Installation</h2>
-<p>The Opencast repository plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-repository_opencast">GitHub</a>.</p>
+<p>The Opencast repository plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-repository_opencast">GitHub</a> as well as from the <a href="https://moodle.org/plugins/repository_opencast">Moodle plugins directory</a>.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>Installed Opencast API tool.</li>
+<li><a href="https://github.com/Opencast-Moodle/moodle-tool_opencast">tool_opencast</a></li>
+<li>Recommended: <a href="https://github.com/Opencast-Moodle/moodle-block_opencast">block_opencast</a></li>
+<li>Optional: <a href="https://github.com/Opencast-Moodle/moodle-filter_opencast">filter_opencast</a></li>
 </ul>
 <h2 id="configuration">Configuration</h2>
 <p>The configuration of the block is documented in the <a href="../settings/">settings</a> page.</p>

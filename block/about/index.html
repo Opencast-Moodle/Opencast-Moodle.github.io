@@ -92,7 +92,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="opencast-block-plugin">Opencast block plugin</h1>
 <p>This block can be used to link moodle courses to Opencast series. 
 Users with respective privileges (in the following called instructors) can use this block to upload videos via moodle to Opencast. 
-These videos are transmitted to the Opencast system by the cronjob and create an event in the respective series there.</p>
+These videos are transmitted to the Opencast system by a cronjob and create an event in the respective series there.</p>
 <p>The block can be used to automatically set the access privileges of moodle users enrolled in the course. 
 All events belonging to the series are displayed in the block. 
 This way, the instructors get an overview of all recorded lectures as well as planned ones. 
@@ -101,22 +101,16 @@ Further, if setup correctly, the instructors are able to restrict the visibility
 <p>The Opencast block plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-block_opencast/releases">GitHub</a> as well as from the <a href="https://moodle.org/plugins/block_opencast">Moodle plugins directory</a>.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>Min. Moodle Version: 3.8</li>
-<li>Opencast API level:<ul>
-<li>Minimum: v1.1.0</li>
-<li>In addition to the roles to access the opencast API, the opencast user has to be provided with the role <code>ROLE_GROUP_MH_DEFAULT_ORG_EXTERNAL_APPLICATIONS</code>.
-  Otherwise, moodle will not have the capabilities to write or read series created through moodle.
-  This role can be changed, but has to be aligned with one of the roles you set under <a href="../general_settings/#roles">Roles</a>.</li>
-</ul>
-</li>
-<li>Installed and configured <a href="https://github.com/Opencast-Moodle/moodle-tool_opencast">Opencast API tool</a>.</li>
+<li>Installed and configured <a href="https://github.com/Opencast-Moodle/moodle-tool_opencast">Opencast API tool</a></li>
 </ul>
 <h2 id="features">Features</h2>
 <ul>
 <li>Upload videos to Opencast</li>
 <li>Record videos using Opencast studio</li>
 <li>Overview of recorded and planned videos in the course</li>
+<li>Overview of all series and videos that a use has access to (independent of a course) (<a href="../global_overview/">Global overview</a>)</li>
 <li>Download processed videos from Opencast  </li>
+<li>Edit the video in the Opencast editor</li>
 <li>Edit metadata and delete videos</li>
 <li>Restrict the visibility of videos to moodle groups or prevent access by students at all</li>
 <li>Allow teachers to start Opencast workflows for videos</li>
@@ -162,6 +156,11 @@ The configuration of the block is split up into six sections:</p>
 <td>Add Opencast Video Provider activity for an episode to course</td>
 </tr>
 <tr>
+<td>block/opencast:addinstance</td>
+<td>editingteacher, manager</td>
+<td>Add a block instance to a course.</td>
+</tr>
+<tr>
 <td>block/opencast:addlti</td>
 <td>editingteacher, manager</td>
 <td>Add Opencast LTI series module to course</td>
@@ -175,6 +174,11 @@ The configuration of the block is split up into six sections:</p>
 <td>block/opencast:addvideo</td>
 <td>editingteacher, manager</td>
 <td>Add a video via Moodle to opencast</td>
+</tr>
+<tr>
+<td>block/opencast:canchangeownerforallvideos</td>
+<td>manager</td>
+<td>Can change the owner of videos without being the owner itself</td>
 </tr>
 <tr>
 <td>block/opencast:createseriesforcourse</td>
@@ -197,6 +201,16 @@ The configuration of the block is split up into six sections:</p>
 <td>Download processed videos</td>
 </tr>
 <tr>
+<td>block/opencast:importseriesintocourse</td>
+<td>manager</td>
+<td>Can import a series into a course</td>
+</tr>
+<tr>
+<td>block/opencast:manageseriesforcourse</td>
+<td>manager</td>
+<td>Can set the default series of a course and delete series from a course</td>
+</tr>
+<tr>
 <td>block/opencast:manualimporttarget</td>
 <td>editingteacher, manager</td>
 <td>Manually import videos from other courses</td>
@@ -205,6 +219,11 @@ The configuration of the block is split up into six sections:</p>
 <td>block/opencast:manualimportsource</td>
 <td>editingteacher, manager</td>
 <td>Manually import videos from a course</td>
+</tr>
+<tr>
+<td>block/opencast:myaddinstance</td>
+<td>user</td>
+<td>Add a block instance to the dashboard.</td>
 </tr>
 <tr>
 <td>block/opencast:startworkflow</td>
@@ -220,6 +239,11 @@ The configuration of the block is split up into six sections:</p>
 <td>block/opencast:viewunpublishedvideos</td>
 <td>editingteacher, manager</td>
 <td>View the list of all videos of the course, which are available in opencast (even not published ones)</td>
+</tr>
+<tr>
+<td>block/opencast:viewusers</td>
+<td>manager</td>
+<td>View all Moodle users when trying to change the owner of a video on the global overview page</td>
 </tr>
 </tbody>
 </table>
@@ -237,7 +261,8 @@ After installing local_boostnavigation to your Moodle instance, please add the f
 After adding the Boost nav drawer item, you can also remove the <code>block/opencast:addinstance</code> capability from all roles as adding the block is not really necessary anymore.</p>
 <h2 id="export-and-import-settings">Export and import settings</h2>
 <p>If you want to export and import the administrator settings of the block, you can use the <a href="https://moodle.org/plugins/block_admin_presets">Admin presets</a> block.
-The admin presets block can be added to the frontpage (https://yourmoodlesite.com/?redirect=0). After adding the block, you can select which settings to export or choose a file from which settings should be imported.</p>
+The admin presets block can be added to the frontpage (https://yourmoodlesite.com/?redirect=0). After adding the block, you can select which settings to export or choose a file from which settings should be imported.
+In Moodle 4, this functionality is partly integrated into the core.</p>
 
   <br>
     

@@ -82,29 +82,50 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="settings">Settings</h1>
-<p>The plugins allow you to connect your Moodle instance to multiple Opencast instances. For each instance, you must configure the following settings.</p>
+<p>The plugins allow you, to connect your Moodle instance to multiple Opencast instances. For each instance, you must configure the settings, described below.
+The configured instances are listed in the table under <em>Opencast Instances</em>. You can add new instances
+by clicking on the <em>Add instance</em> button.</p>
+<p>Next to an automatically set and constant ID, each instance has a name, which you can choose.
+The admin settings page of the plugin has an own configuration section for each instance,
+that is classified with the name of the corresponding instance. Note, that that section
+for a newly added instance will be visible only after saving changes. The same applies to
+the deletion of an instance.</p>
+<p>Furthermore, each instance has additional options, that can be configured with the table:
+* <strong>Is visible to teachers:</strong> If checked, the videos of the corresponding instance are visible in the overview of the block <em>Opencast Videos</em> in a course.
+Otherwise, the videos of the corresponding instance are hidden.
+* <strong>Default:</strong> There must be exactly one default instance. Such an instance has the following additional properties:<br>
+  * It is automatically selected in the configuration form of the <em>Opencast activity plugin</em>;
+  * It is automatically selected in the upload form for a video of the <em>Opencast activity plugin</em>;
+  * It specifies the allowed video file extensions for an upload of a video file via drag and drop in the activity sections of a course (with edit mode turned on);
+  <!--
+  * It is used for some pages, if no instance is specified within the corresponding URL;
+  * It is used as a default value for *seriesmapping (extends \core\persistent)* via closure;
+  -->
+</p>
 <p>Before being able to configure the Opencast API tool, a user has to be created in Opencast. 
-This user will be used to connect to Opencast from within Moodle. This user needs to have the following roles in Opencast:</p>
+That user will be used, to connect to Opencast from within Moodle. It needs to have the following roles in Opencast:</p>
 <ul>
-<li>ROLE_API</li>
-<li>ROLE_API_*</li>
-<li>ROLE_SUDO</li>
+<li><code>ROLE_API</code></li>
+<li><code>ROLE_API_*</code></li>
+<li><code>ROLE_SUDO</code></li>
 </ul>
-<p>Once the user is created you can add it to the group <code>Opencast Project External Applications</code>.</p>
+<p>Once such a user is created, you must add it to the group <code>Opencast Project External Applications</code> <em>(role <code>ROLE_GROUP_MH_DEFAULT_ORG_EXTERNAL_APPLICATIONS</code>)</em>,
+which is created by Opencast by default, or you must add the required external API roles to that user in a different way.
+Note, that the roles above are the minimal required roles and additional roles may be added, if required.</p>
 <p>The tool plugin has the following configuration options:</p>
 <ul>
-<li><strong>Opencast API URL:</strong> This is the base URL of the Opencast system. If you have a multiple server setup this should be the URL of the admin server. Provide the URL including <code>https://</code>. For example: <code>https://stable.opencast.org</code></li>
-<li><strong>Username for API calls:</strong> Provide the username of the previously created user.</li>
-<li><strong>Password for API user:</strong> Provide the password of the previously created user.</li>
-<li><strong>Overall API request execution timeout:</strong>: Configure the time in milliseconds each API request to Opencast might take until timeout.</li>
-<li><strong>Connection timeout:</strong> Setup the time in milliseconds while Moodle is trying to connect to opencast until timeout.</li>
+<li><strong>Opencast API URL:</strong> This is the base URL of the Opencast system. If you have a multiple server setup, this should be the URL of the admin server. Provide the URL including <code>http://</code> or <code>https://</code>.<br>For example: <code>https://stable.opencast.org</code></li>
+<li><strong>Username for API calls:</strong> Provide the username of the previously created Opencast user.</li>
+<li><strong>Password for API user:</strong> Provide the password of the previously created Opencast user.</li>
+<li><strong>Overall API request execution timeout:</strong>: Configure the time in milliseconds, each API request to Opencast might take until timeout.</li>
+<li><strong>Connection timeout:</strong> Setup the time in milliseconds, while Moodle is trying to connect to Opencast until timeout.</li>
 </ul>
-<p>You can test if your API user configuration is correct by clicking on the <em>Connection Test Tool</em> button. 
-It shows if the tool is able to reach the Opencast server and if it is able to successfully authenticate with the configure API user.</p>
-<p>If you want to use LTI to authenticate users e.g. for Opencast Studio, you must set the following settings:
+<p>You can test, whether your API user configuration is correct, by clicking on the <em>Connection Test Tool</em> button. 
+It shows, whether the tool is able, to reach the Opencast server, and whether it is able to successfully authenticate with the configured API user.</p>
+<p>If you want to use LTI, to authenticate users, e.g., for Opencast Studio, you must set the following settings:
 * <strong>Consumer key:</strong> LTI Consumer key as configured in Opencast
 * <strong>Consumer secret:</strong> LTI Consumer secret as configured in Opencast</p>
-<p>LTI must be configured in Opencast, see <a href="https://docs.opencast.org/develop/admin/#modules/ltimodule/">LTI</a>. If you want LTI users to be allowed to access Opencast studio, you must grant them the additional role <code>ROLE_STUDIO</code> in the Opencast LTI ocnfiguration.</p>
+<p>LTI must be configured in Opencast, see <a href="https://docs.opencast.org/develop/admin/#modules/ltimodule/">LTI</a>. If you want LTI users to be allowed, to access Opencast studio, you must grant them the additional role <code>ROLE_STUDIO</code> in the Opencast LTI configuration.</p>
 
   <br>
     

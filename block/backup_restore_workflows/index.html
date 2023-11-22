@@ -84,13 +84,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="configuration-of-the-duplicate-workflow">Configuration of the Duplicate Workflow</h1>
-<p>To use the backup and restore functionality, you need to specify a duplication workflow within the Moodle settings. However, there is no out of the box workflow defined in Opencast, which allows to duplicate a series.</p>
+<p>To use the backup and restore functionality, you need to specify a duplication workflow within the Moodle settings. However, there is no out of the box workflow defined in Opencast, which allows, to duplicate a series.</p>
 <h2 id="own-workflows">Own workflows</h2>
 <p>If you want to create your own workflow, here are the descriptions of the general restore process:</p>
 <p>In the restore process, we first create a new opencast series for the new course. Afterwards, for each event UID of the
-backup a 'duplicate' workflow is started, while the new series UID is given as a configuration parameter to the start workflow call. The variable used to store the series ID is 'seriesID'.
-In our workflow definition example from above, the first workflow lms-automated-duplicate will duplicate the event and will start a new workflow for the new event. This second workflow lms-publish-duplicate then assigns the series of the new course to the new event.</p>
-<p>In order to be able to select your duplicate workflow within Moodle, you need to assign the 'api' tag to it, since the viable duplicate workflows are filtered by that.</p>
+backup a 'duplicate' workflow is started, while the new series UID is given as a configuration parameter to the start workflow call. The variable, used to store the series ID, is 'seriesID'.
+In our workflow definition example from above, the first workflow <em>lms-automated-duplicate</em> will duplicate the event and will start a new workflow for the new event. This second workflow <em>lms-publish-duplicate</em> then assigns the series of the new course to the new event.</p>
+<p>In order to be able to select your duplicate workflow within Moodle, you need to assign the <em>'api'</em> tag to it, since the viable duplicate workflows are filtered by that.</p>
 <h2 id="workflow-examples">Workflow examples</h2>
 <p>The workflow that is triggered by Moodle:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
@@ -149,7 +149,7 @@ In our workflow definition example from above, the first workflow lms-automated-
 
 &lt;/definition&gt;
 </code></pre>
-<p>The first workflow triggers this second workflow on the duplicated mediapackage.</p>
+<p>The first workflow triggers this second workflow on the duplicated <em>mediapackage</em>.</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;definition xmlns=&quot;http://workflow.opencastproject.org&quot;&gt;
   &lt;id&gt;lms-publish-duplicate&lt;/id&gt;

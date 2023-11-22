@@ -90,13 +90,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="opencast-block-plugin">Opencast block plugin</h1>
-<p>This block can be used to link moodle courses to Opencast series. 
-Users with respective privileges (in the following called instructors) can use this block to upload videos via moodle to Opencast. 
-These videos are transmitted to the Opencast system by a cronjob and create an event in the respective series there.</p>
-<p>The block can be used to automatically set the access privileges of moodle users enrolled in the course. 
+<p>This block can be used, to link Moodle courses to Opencast series. 
+Users with respective privileges (in the following called instructors) can use this block, to upload videos via Moodle to Opencast. 
+These videos are transmitted to the Opencast system by a cronjob and create an event in the respective series there.
+Other plugins, like the <em>Opencast activity plugin</em>, can be used afterwards, to provide a complete series or a bulk of videos within a course.</p>
+<p>The block can be used, to automatically set the access privileges of Moodle users enrolled in the course. 
 All events belonging to the series are displayed in the block. 
 This way, the instructors get an overview of all recorded lectures as well as planned ones. 
-Further, if setup correctly, the instructors are able to restrict the visibility to moodle groups or prevent access by students at all.</p>
+Further, if set up correctly, the instructors are able to restrict the visibility to Moodle groups or prevent access by students at all.</p>
 <h2 id="installation">Installation</h2>
 <p>The Opencast block plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-block_opencast/releases">GitHub</a> as well as from the <a href="https://moodle.org/plugins/block_opencast">Moodle plugins directory</a>.</p>
 <h2 id="requirements">Requirements</h2>
@@ -109,33 +110,37 @@ Further, if setup correctly, the instructors are able to restrict the visibility
 <li>Record videos using Opencast studio</li>
 <li>Overview of recorded and planned videos in the course</li>
 <li>Overview of all series and videos that a use has access to (independent of a course) (<a href="../global_overview/">Global overview</a>)</li>
+<li>Attaching transcription files to videos</li>
+<li>Send process notifications about videos</li>
+<li>Live status updates of the uploading status and workflow processing states of videos</li>
 <li>Download processed videos from Opencast  </li>
 <li>Edit the video in the Opencast editor</li>
 <li>Edit metadata and delete videos</li>
-<li>Restrict the visibility of videos to moodle groups or prevent access by students at all</li>
-<li>Allow teachers to start Opencast workflows for videos</li>
+<li>Restrict the visibility of videos to Moodle groups or prevent access by students at all</li>
+<li>Allow teachers, to start Opencast workflows for videos</li>
 <li>Linking an existing Opencast series to the course</li>
-<li>Import videos from other moodle courses by duplicating them</li>
+<li>Import videos from other Moodle courses via course reuse, series import or manual video bulk import</li>
 <li>Report problems to a support team with automatically including technical information</li>
 <li>In integration with the activity <a href="https://moodle.org/plugins/mod_opencast">Opencast Video Provider</a>:<ul>
-<li>Provide the series or single videos as activity for students to watch directly in moodle</li>
-<li>Restrict the visibility using the extensive moodle activity access settings</li>
+<li>Provide the series or single videos as activity for students to watch directly in Moodle</li>
+<li>Restrict the visibility using the extensive Moodle activity access settings</li>
 </ul>
 </li>
 </ul>
 <h2 id="configuration">Configuration</h2>
-<p>The block has many settings that allow the administrator to further specify the features or to turn them off.
+<p>The block has many settings, that allow the administrator, to further specify the features or to turn them off.
 The configuration of the block is split up into six sections:</p>
 <ul>
+<li><a href="../shared_settings/">Shared settings</a></li>
 <li><a href="../general_settings/">General settings</a></li>
 <li><a href="../appearance/">Appearance</a></li>
 <li><a href="../additional_features/">Additional features</a></li>
 <li><a href="../lti_module_features/">LTI module features</a></li>
 <li><a href="import_module_features.md">Import videos features</a></li>
-<li><a href="workflow_settings.md">Workflow settings</a></li>
 </ul>
 <h2 id="capabilities">Capabilities</h2>
-<p>There are additional capabilities, with which you can control the access to the features of the block.</p>
+<p>There are additional capabilities, with which you can control the access to the features of the block.
+Those capabilities are given in an alphabetical order by the following table:</p>
 <table>
 <thead>
 <tr>
@@ -176,6 +181,11 @@ The configuration of the block is split up into six sections:</p>
 <td>Add a video via Moodle to opencast</td>
 </tr>
 <tr>
+<td>block/opencast:autocompleteteacherroles</td>
+<td>editingteacher, teacher</td>
+<td>One's fullname is used for fullname suggestions in a course for different forms</td>
+</tr>
+<tr>
 <td>block/opencast:canchangeownerforallvideos</td>
 <td>manager</td>
 <td>Can change the owner of videos without being the owner itself</td>
@@ -194,6 +204,11 @@ The configuration of the block is split up into six sections:</p>
 <td>block/opencast:deleteevent</td>
 <td>editingteacher, manager</td>
 <td>Allows to delete a video as specified above</td>
+</tr>
+<tr>
+<td>block/opencast:directaccessvideolink</td>
+<td>student, teacher, editingteacher, manager</td>
+<td>This capability is mainly for those, who received a shared direct access link from a Lecturer and would like to access that video.</td>
 </tr>
 <tr>
 <td>block/opencast:downloadvideo</td>
@@ -226,6 +241,11 @@ The configuration of the block is split up into six sections:</p>
 <td>Add a block instance to the dashboard.</td>
 </tr>
 <tr>
+<td>block/opencast:sharedirectaccessvideolink</td>
+<td>editingteacher, manager</td>
+<td>This is the capability, to give to Lecturers mainly, who would like to share the direct access link to an event with students or anyone else. The feature of sharing a direct access link must be activated in the admin settings and then, Lecturers who have this capability, will have another item in the action menu of each event, which gives them a local Moodle url to share.</td>
+</tr>
+<tr>
 <td>block/opencast:startworkflow</td>
 <td>editingteacher, manager</td>
 <td>Start a preconfigured workflow for a video</td>
@@ -251,14 +271,14 @@ The configuration of the block is split up into six sections:</p>
 <p>The execution of upload jobs are being logged, which can be viewed at <em>Site administration</em>-&gt;<em>Reports</em>-&gt;<em>Logs</em>.
 View the setting "Site Errors" instead of "All activities" you can view only those upload jobs, which failed.    </p>
 <h2 id="placement">Placement</h2>
-<p>This plugin is designed as block and, to be used, it will be initially added to a Moodle course by a teacher. The block shows a quick overview over the videos which are uploaded in the block, but mainly links to a fullscreen overview page where the full functionality of the plugin is provided.</p>
-<p>If you want to provide the plugin in every course by default without requiring that the teachers adds it to the course, please have a look at Moodle core's $CFG-&gt;defaultblocks setting which is set in config.php only and which is described on https://github.com/moodle/moodle/blob/master/config-dist.php.</p>
+<p>This plugin is designed as block and, to be used, it will be initially added to a Moodle course by a teacher. The block shows a quick overview over the videos, which are uploaded in the block, but mainly links to a fullscreen overview page, where the full functionality of the plugin is provided.</p>
+<p>If you want to provide the plugin in every course by default without requiring, that the teachers adds it to the course, please have a look at Moodle core's <code>$CFG-&gt;defaultblocks</code> setting which is set in <em>config.php</em> only and which is described on https://github.com/moodle/moodle/blob/master/config-dist.php.</p>
 <p>As an alternative to placing the block by default, you might also want to add a link to the plugin's overview page to the Boost nav drawer. This plugin does not offer support for adding a Boost nav drawer item itself, but we would like to reference the https://moodle.org/plugins/local_boostnavigation plugin for this job.
-After installing local_boostnavigation to your Moodle instance, please add the following line to the <code>local_boostnavigation | insertcustomcoursenodesusers</code> setting:</p>
+After installing <em>local_boostnavigation</em> to your Moodle instance, please add the following line to the <code>local_boostnavigation | insertcustomcoursenodesusers</code> setting:</p>
 <pre><code>Opencast Videos|/blocks/opencast/index.php?courseid={courseid}|||editingteacher,manager|admin|OR|fa-film|opencast|grades
 </code></pre>
-<p>Please take extra care that the <code>editingteacher,manager</code> list of roles should match the list of roles who are given the <code>block/opencast:addvideo</code> capability in your Moodle instance.
-After adding the Boost nav drawer item, you can also remove the <code>block/opencast:addinstance</code> capability from all roles as adding the block is not really necessary anymore.</p>
+<p>Please take extra care, that the <code>editingteacher,manager</code> list of roles should match the list of roles, who are given the <code>block/opencast:addvideo</code> capability in your Moodle instance.
+After adding the Boost nav drawer item, you can also remove the <code>block/opencast:addinstance</code> capability from all roles, as adding the block is not really necessary anymore.</p>
 <h2 id="export-and-import-settings">Export and import settings</h2>
 <p>If you want to export and import the administrator settings of the block, you can use the <a href="https://moodle.org/plugins/block_admin_presets">Admin presets</a> block.
 The admin presets block can be added to the frontpage (https://yourmoodlesite.com/?redirect=0). After adding the block, you can select which settings to export or choose a file from which settings should be imported.

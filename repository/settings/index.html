@@ -83,24 +83,24 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="settings">Settings</h1>
-<p>In the settings of the repository plugin the repository instances can configured.
+<p>In the settings of the repository plugin the repository instances can be configured.
 The possible options per repository instance are:</p>
 <ul>
 <li><strong>Name:</strong> Name of the repository instance.</li>
-<li><strong>Opencast instance:</strong> The Opencast instance from which the repository retrieves videos.</li>
-<li><strong>Opencast default author:</strong> The default author that is displayed for a video if the creator is not given. Empty by default.</li>
+<li><strong>Opencast instance:</strong> The Opencast instance, from which the repository retrieves videos.</li>
+<li><strong>Opencast default author:</strong> The default author, that is displayed for a video, if the creator is not given. Empty by default.</li>
 <li><strong>Opencast channelid:</strong>: The channel id of the publication in Opencast. With a default Opencast installation you can use <code>engage-player</code>.</li>
 <li><strong>Preferred flavor to get thumbnail:</strong>: The flavor for the thumbnail. Leave empty for the Opencast default.</li>
-<li><strong>Fallback flavor to get thumbnail:</strong> Fallback flavor for the thumbnail if there is no thumbnail for the preferred flavor.</li>
-<li><strong>Embedd URL to player instead of media file.</strong> Whether the URL to the Opencast player should be embedded. If this box is not checked, a direct link to a video file will be embedded.</li>
-<li><strong>Flavor to get video:</strong> The flavor of the video. Leave empty to use the Opencast default.</li>
+<li><strong>Fallback flavor to get thumbnail:</strong> Fallback flavor for the thumbnail, if there is no thumbnail for the preferred flavor.</li>
+<li><strong>Embedd URL to player instead of media file:</strong> Whether the URL to the Opencast player should be embedded. If this box is not checked, a direct link to a video file will be embedded.</li>
+<li><strong>Flavor to get video:</strong> The flavor of the video. Leave empty, to use the Opencast default.</li>
 </ul>
 <h3 id="publication-channels">Publication channels</h3>
-<p>Opencast publishes its events in so called publication channels.
-One default publication channel is e.g. the <code>engage-player</code> channel.
+<p>Opencast publishes its events in so-called publication channels.
+One default publication channel is, e.g., the <code>engage-player</code> channel.
 Each publication has a publication URL, which points to the page under which the video is published (e.g. an HTTP page with the Opencast player).
 Additionally, publications can contain a set of media data with URLs to the media files themselves (e.g. an MP4 file).</p>
-<p>For the configuration of the publication channel you can either use the default publication channel <code>engage-player</code> or use your own publication channel. To use your own publication channel you will have to modify the publish workflow and add a <code>publish-configure</code> operation. For example:</p>
+<p>For the configuration of the publication channel, you can either use the default publication channel <code>engage-player</code> or use your own publication channel. To use your own publication channel, you will have to modify the publish workflow and add a <code>publish-configure</code> operation. For example:</p>
 <pre><code>&lt;operation
   id=&quot;publish-configure&quot;
   exception-handler-workflow=&quot;partial-error&quot;

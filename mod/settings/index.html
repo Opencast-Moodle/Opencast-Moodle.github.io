@@ -85,15 +85,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="settings">Settings</h1>
 <h2 id="general-settings">General settings</h2>
-<p>The activity has two mandatory settings that can be modified by the administrator.</p>
-<p><img src="https://user-images.githubusercontent.com/28386141/115534550-2f772c00-a298-11eb-98c9-70b3d62bd751.png" width="500"></br></p>
-<p>The first configuration <strong>Opencast Channel</strong> specifies the Opencast channel to which the videos are published. Only videos published in this channel can be displayed with this activity. The publication must include media files, e.g. <code>.mp4</code> files, that can be served to the paella player.</p>
-<p>The second configuration <strong>URL to Paella config.json</strong> specifies the path to the Paella player config. This config can be adapted if you want to modify the look or behavior of the Paella player.</p>
+<p>The activity has three mandatory settings, that can be modified by the administrator.</p>
+<p><img src="../img/mod/settings_part_1.png" width="500"></br></p>
+<p>The first configuration <strong>Opencast Channel</strong> specifies the Opencast channel, to which the videos are published. Only videos published in this channel can be displayed with this activity. The publication must include media files, e.g. <code>.mp4</code> files, that can be served to the paella player.</p>
+<p>The second configuration <strong>URL to Paella config.json</strong> specifies the path to the Paella player config. This config can be adapted, if you want to modify the look or behavior of the Paella player.</p>
+<p>The third configuration <strong>URL to Paella theme.json</strong> specifies the path to the Paella player theme. This config can be adapted, if you want to modify the look of the Paella player.</p>
 <h2 id="download-settings">Download settings</h2>
-<p>In the activity a dropdown menu can be provided allowing students to download videos.
-To activate this functionality the setting <strong>Opencast Download Channel</strong> must be configured. It must contain a valid publication channel that contains media files such as <code>.mp4</code> files.</p>
-<p><img src="https://user-images.githubusercontent.com/28386141/150024765-3b14fbff-8544-4ab0-81ff-1b123a754988.png" width="500"></br></p>
-<p>The download functionality is implemented on activity level. By default, it is deactivated and teachers have to activate it explicitly. However, administrators can activate the setting <strong>Allow download by default</strong> to create an "Opt-out" scenario. In this case, the download is generally enabled and teachers have to disable it explicitly.</p>
+<p>In the activity a dropdown menu can be provided, allowing students, to download videos.
+To activate this functionality, the setting <strong>Opencast Download Channel</strong> must be configured. It must contain a valid publication channel, that contains media files such as <code>.mp4</code> files.</p>
+<p><img src="../img/mod/settings_part_2.png" width="500"></br></p>
+<p>The download functionality is implemented on activity level. By default, it is deactivated and teachers have to activate it explicitly. However, administrators can activate the setting <strong>Allow download by default</strong>, to create an "Opt-out" scenario. In this case, the download is generally enabled and teachers have to disable it explicitly.</p>
 <p>The last setting <strong>Force student download</strong> prevents teachers from configuring the download functionality. Students can always download videos.</p>
 
   <br>

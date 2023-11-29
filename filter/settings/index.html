@@ -76,10 +76,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="Filter opencast configuration" src="../../img/filter_config.png" /></p>
 <ul>
 <li><strong>URL templates for filtering:</strong> URLs matching this template are replaced with the Opencast player. 
-To define the correct URL, you should check which URL is inserted into a text by the repository. In general, you must define only one URL. In the URL, you must use the placeholder [EPISODEID] to indicate where the episode ID is contained in the URL, e.g. <code>http://stable.opencast.de/play/[EPISODEID]</code>.</li>
-<li><strong>URL to Paella config.json:</strong> Define an absolute or relative URL to the <code>config.json</code> that is used by the Paella Player. This config can be adapted if you want to modify the look or behavior of the Paella player.</li>
+To define the correct URL, you should check which URL is inserted into a text by the repository. In general, you must define only one URL. In the URL, you must use the placeholder <em>\[EPISODEID]</em>, to indicate, where the episode ID is contained in the URL, e.g. <code>http://stable.opencast.de/play/[EPISODEID]</code>.</li>
+<li><strong>URL to Paella config.json:</strong> Defines an absolute or relative URL to the <code>config.json</code>, that is used by the Paella Player. This config can be adapted, if you want to modify the look or behavior of the Paella player.</li>
 </ul>
-<p>Once you configured the filter you need to activate the filter.</p>
+<p>Once you configured the filter, you need to activate the filter.</p>
 
   <br>
     

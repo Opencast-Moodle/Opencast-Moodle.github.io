@@ -35,6 +35,7 @@
         var pageToc = [
           {title: "Configuration of the Duplicate Workflow", url: "#_top", children: [
               {title: "Own workflows", url: "#own-workflows" },
+              {title: "Important changes", url: "#important-changes" },
               {title: "Workflow examples", url: "#workflow-examples" },
           ]},
         ];
@@ -88,9 +89,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h2 id="own-workflows">Own workflows</h2>
 <p>If you want to create your own workflow, here are the descriptions of the general restore process:</p>
 <p>In the restore process, we first create a new opencast series for the new course. Afterwards, for each event UID of the
-backup a 'duplicate' workflow is started, while the new series UID is given as a configuration parameter to the start workflow call. The variable, used to store the series ID, is 'seriesID'.
+backup a 'duplicate' workflow is started, while the new series UID is given as a configuration parameter to the start workflow call. The variable, used to store the series ID, is 'seriesId'.
 In our workflow definition example from above, the first workflow <em>lms-automated-duplicate</em> will duplicate the event and will start a new workflow for the new event. This second workflow <em>lms-publish-duplicate</em> then assigns the series of the new course to the new event.</p>
 <p>In order to be able to select your duplicate workflow within Moodle, you need to assign the <em>'api'</em> tag to it, since the viable duplicate workflows are filtered by that.</p>
+<h2 id="important-changes">Important changes</h2>
+<p>Prior to version v4.1-r1 of the plugin, the following workflows must use "seriesID" instead of "seriesId". It is highly recommended/necessary to update these variables from "seriesID" to "seriesId" in your workflows if you are planing to use this feature with the latest version of the plugin.</p>
 <h2 id="workflow-examples">Workflow examples</h2>
 <p>The workflow that is triggered by Moodle:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
@@ -130,7 +133,7 @@ In our workflow definition example from above, the first workflow <em>lms-automa
       &lt;configurations&gt;
         &lt;configuration key=&quot;workflow-definition&quot;&gt;lms-publish-duplicate&lt;/configuration&gt;
         &lt;configuration key=&quot;media-package&quot;&gt;${duplicate_media_package_1_id}&lt;/configuration&gt;
-        &lt;configuration key=&quot;seriesID&quot;&gt;${seriesID}&lt;/configuration&gt;
+        &lt;configuration key=&quot;seriesId&quot;&gt;${seriesId}&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
@@ -191,7 +194,7 @@ In our workflow definition example from above, the first workflow <em>lms-automa
       exception-handler-workflow=&quot;partial-error&quot;
       description=&quot;Apply series metadata and acl&quot;&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;series&quot;&gt;${seriesID}&lt;/configuration&gt;
+        &lt;configuration key=&quot;series&quot;&gt;${seriesId}&lt;/configuration&gt;
         &lt;configuration key=&quot;attach&quot;&gt;*/*&lt;/configuration&gt;
         &lt;configuration key=&quot;apply-acl&quot;&gt;true&lt;/configuration&gt;
         &lt;configuration key=&quot;copy-metadata&quot;&gt;isPartOf&lt;/configuration&gt;

@@ -35,7 +35,7 @@
         var pageToc = [
           {title: "Configuration of the Duplicate Workflow", url: "#_top", children: [
               {title: "Own workflows", url: "#own-workflows" },
-              {title: "Important changes", url: "#important-changes" },
+              {title: "Important changes for converting \"seriesID\" to \"seriesId\"", url: "#important-changes-for-converting-seriesid-to-seriesid" },
               {title: "Workflow examples", url: "#workflow-examples" },
           ]},
         ];
@@ -92,8 +92,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 backup a 'duplicate' workflow is started, while the new series UID is given as a configuration parameter to the start workflow call. The variable, used to store the series ID, is 'seriesId'.
 In our workflow definition example from above, the first workflow <em>lms-automated-duplicate</em> will duplicate the event and will start a new workflow for the new event. This second workflow <em>lms-publish-duplicate</em> then assigns the series of the new course to the new event.</p>
 <p>In order to be able to select your duplicate workflow within Moodle, you need to assign the <em>'api'</em> tag to it, since the viable duplicate workflows are filtered by that.</p>
-<h2 id="important-changes">Important changes</h2>
+<h2 id="important-changes-for-converting-seriesid-to-seriesid">Important changes for converting "seriesID" to "seriesId"</h2>
 <p>Prior to version v4.1-r1 of the plugin, the following workflows must use "seriesID" instead of "seriesId". It is highly recommended/necessary to update these variables from "seriesID" to "seriesId" in your workflows if you are planing to use this feature with the latest version of the plugin.</p>
+<h4 id="important-opencast-database-change">Important Opencast database change</h4>
+<p>In addition to the steps above, if the above mentioned issue is applied to your system, then you might encounter the issue of unsuccessful duplication for old videos when using the new workflows with "seriesId", for that to be fixed, you have to manually perform the following SQL database queries against your Opencast database:
+1. To make sure that "oc_assets_properties" table has any record of "seriesID":
+<code>SELECT * FROM oc_assets_properties where property_name='seriesID';</code>
+2. If the above query indicates that "seriesID" exists, you have to perform the following SQL query to delete it from the table:
+<code>DELETE FROM oc_assets_properties WHERE property_name='seriesID';</code></p>
 <h2 id="workflow-examples">Workflow examples</h2>
 <p>The workflow that is triggered by Moodle:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;

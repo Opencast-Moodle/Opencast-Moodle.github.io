@@ -96,13 +96,13 @@ In our workflow definition example from above, the first workflow <em>lms-automa
 <p>Prior to version v4.1-r1 of the plugin, the following workflows must use "seriesID" instead of "seriesId". It is highly recommended/necessary to update these variables from "seriesID" to "seriesId" in your workflows if you are planing to use this feature with the latest version of the plugin.</p>
 <h4 id="important-opencast-database-change">Important Opencast database change</h4>
 <p>In addition to the steps above, if the above mentioned issue is applied to your system, then you might encounter the issue of unsuccessful duplication for old videos when using the new workflows with "seriesId", for that to be fixed, you have to manually perform the following SQL database queries against your Opencast database:</p>
-<ol>
+<ul>
 <li>To make sure that "oc_assets_properties" table has any record of "seriesID":</li>
-</ol>
+</ul>
 <p><code>SELECT * FROM oc_assets_properties where property_name='seriesID';</code></p>
-<ol>
+<ul>
 <li>If the above query indicates that "seriesID" exists, you have to perform the following SQL query to delete it from the table:</li>
-</ol>
+</ul>
 <p><code>DELETE FROM oc_assets_properties WHERE property_name='seriesID';</code></p>
 <h2 id="workflow-examples">Workflow examples</h2>
 <p>The workflow that is triggered by Moodle:</p>

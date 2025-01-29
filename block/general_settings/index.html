@@ -113,7 +113,7 @@ Then the cron job is not terminated early.</p>
 <p><strong>Note:</strong> if empty, all elements in the workflow configuration panel such as input and select elements will be provided to the teachers.</p>
 <ul>
 <li>
-<p><strong>Publish to Engage:</strong>  Select whether the videos should be published to the engage player. This results in the configuration field 'publishToEngage' to be set to <code>true</code> or <code>false</code> for the called workflow (only useful if the selected workflow supports this). When using the default workflows this checkbox needs to be ticked.</p>
+<p><strong>Publish to Engage:</strong>  Select whether the videos should be published to the engage player. This results in the configuration field &lsquo;publishToEngage&rsquo; to be set to <code>true</code> or <code>false</code> for the called workflow (only useful if the selected workflow supports this). When using the default workflows this checkbox needs to be ticked.</p>
 </li>
 <li>
 <p><strong>Ingest upload:</strong> Use the Opencast ingest service for uploading videos. For this to work, you must have configured ingest nodes in your Opencast instance.</p>
@@ -122,19 +122,19 @@ Then the cron job is not terminated early.</p>
 <p><strong>Reuse existing uploads:</strong> Select if multiple videos with the same content hash are uploaded to opencast only once. <em>This is a legacy feature: Not recommended to be used. With our further development we strive to create one series per course.</em></p>
 </li>
 <li>
-<p><strong>Allow unassign from course</strong> others a 'delete' icon to the teacher, which will unassign the event from the series of the course. <em>This is a legacy feature: Only useful if events should not actually be deleted!</em></p>
+<p><strong>Allow unassign from course</strong> others a &lsquo;delete&rsquo; icon to the teacher, which will unassign the event from the series of the course. <em>This is a legacy feature: Only useful if events should not actually be deleted!</em></p>
 </li>
 <li>
-<p><strong>Workflow to start before event is be deleted:</strong> Setup the unique shortname of the workflow that should be started for deleting a video file in Opencast. If a workflow is selected, a 'delete' icon is offered to the teacher, which will actually delete the event in the Opencast system. When using the default workflows it is recommended to use the <code>Delete</code> workflow. We recommend to use only one of the two previous 'delete' options! With Opencast 10, this option is usually not required anymore since videos are automatically retracted before deletion.</p>
+<p><strong>Workflow to start before event is be deleted:</strong> Setup the unique shortname of the workflow that should be started for deleting a video file in Opencast. If a workflow is selected, a &lsquo;delete&rsquo; icon is offered to the teacher, which will actually delete the event in the Opencast system. When using the default workflows it is recommended to use the <code>Delete</code> workflow. We recommend to use only one of the two previous &lsquo;delete&rsquo; options! With Opencast 10, this option is usually not required anymore since videos are automatically retracted before deletion.</p>
 </li>
 <li>
 <p><strong>Delete videofile from Moodle:</strong> This setting causes the Moodle system to delete the file of the uploaded video as soon as possible. If set to false, the video file will remain in the Moodle system in the draft area until a cron job deletes it (usually some days later).</p>
 </li>
 <li>
-<p><strong>Allowed file extensions:</strong> With 'Allowed file extensions' you can specify which file extensions users can upload as videos. The extensions must exist as file types in Moodle under Site administration -&gt; Server -&gt; File types. If left blank all of Moodle's file types in the type group 'video' are allowed.</p>
+<p><strong>Allowed file extensions:</strong> With &lsquo;Allowed file extensions&rsquo; you can specify which file extensions users can upload as videos. The extensions must exist as file types in Moodle under Site administration -&gt; Server -&gt; File types. If left blank all of Moodle&rsquo;s file types in the type group &lsquo;video&rsquo; are allowed.</p>
 </li>
 <li>
-<p><strong>Maximum number of series:</strong> Specifies how many series can be assigned to a course. Teachers won't be able to add/import more series if the maximum number is reached.</p>
+<p><strong>Maximum number of series:</strong> Specifies how many series can be assigned to a course. Teachers won&rsquo;t be able to add/import more series if the maximum number is reached.</p>
 </li>
 </ul>
 <h2 id="settings-for-a-block-instance">Settings for a block instance</h2>
@@ -210,7 +210,7 @@ The following placeholders are available:</p>
 <li><strong>[COURSENAME]</strong>: Will be replaced by the name of the course.</li>
 <li><strong>[COURSEGROUPID]</strong>:  Should only be used in non-permanent roles.
   Depending on the visibility of the event, it is either replaced by the id of the course or
-  (in case the visibility is restricted by groups) it is replaced by a 'G' followed by the id of the group.
+  (in case the visibility is restricted by groups) it is replaced by a &lsquo;G&rsquo; followed by the id of the group.
   In case that multiple groups are selected in the visibility dialog, one ACL rule for every group is created.
   The basic role including the course id is removed in the case of group visibility.</li>
 <li><strong>[USERNAME]</strong>:: Will be replaced by the name of the user who uploaded a video or created a series. Roles with this placeholder must be permanent.</li>

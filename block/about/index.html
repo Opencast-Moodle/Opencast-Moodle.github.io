@@ -105,7 +105,7 @@ Further, if set up correctly, the instructors are able to restrict the visibilit
 <p>The <a href="https://github.com/Opencast-Moodle/moodle-block_opencast/releases">GitHub repository</a>, which provides the latest releases, source code, Roadmap and current developments.</p>
 </li>
 <li>
-<p>The <a href="https://moodle.org/plugins/block_opencast">Moodle plugins directory</a>, offering a convenient "Official" installation package directly within Moodle.</p>
+<p>The <a href="https://moodle.org/plugins/block_opencast">Moodle plugins directory</a>, offering a convenient &ldquo;Official&rdquo; installation package directly within Moodle.</p>
 </li>
 </ul>
 <h2 id="requirements">Requirements</h2>
@@ -195,7 +195,7 @@ Those capabilities are given in an alphabetical order by the following table:</p
 <tr>
 <td>block/opencast:autocompleteteacherroles</td>
 <td>editingteacher, teacher</td>
-<td>One's fullname is used for fullname suggestions in a course for different forms</td>
+<td>One&rsquo;s fullname is used for fullname suggestions in a course for different forms</td>
 </tr>
 <tr>
 <td>block/opencast:canchangeownerforallvideos</td>
@@ -281,11 +281,11 @@ Those capabilities are given in an alphabetical order by the following table:</p
 </table>
 <h2 id="logging">Logging</h2>
 <p>The execution of upload jobs are being logged, which can be viewed at <em>Site administration</em>-&gt;<em>Reports</em>-&gt;<em>Logs</em>.
-View the setting "Site Errors" instead of "All activities" you can view only those upload jobs, which failed.</p>
+View the setting &ldquo;Site Errors&rdquo; instead of &ldquo;All activities&rdquo; you can view only those upload jobs, which failed.</p>
 <h2 id="placement">Placement</h2>
 <p>This plugin is designed as block and, to be used, it will be initially added to a Moodle course by a teacher. The block shows a quick overview over the videos, which are uploaded in the block, but mainly links to a fullscreen overview page, where the full functionality of the plugin is provided.</p>
-<p>If you want to provide the plugin in every course by default without requiring, that the teachers adds it to the course, please have a look at Moodle core's <code>$CFG-&gt;defaultblocks</code> setting which is set in <em>config.php</em> only and which is described on https://github.com/moodle/moodle/blob/master/config-dist.php.</p>
-<p>As an alternative to placing the block by default, you might also want to add a link to the plugin's overview page to the Boost nav drawer. This plugin does not offer support for adding a Boost nav drawer item itself, but we would like to reference the https://moodle.org/plugins/local_boostnavigation plugin for this job.
+<p>If you want to provide the plugin in every course by default without requiring, that the teachers adds it to the course, please have a look at Moodle core&rsquo;s <code>$CFG-&gt;defaultblocks</code> setting which is set in <em>config.php</em> only and which is described on https://github.com/moodle/moodle/blob/master/config-dist.php.</p>
+<p>As an alternative to placing the block by default, you might also want to add a link to the plugin&rsquo;s overview page to the Boost nav drawer. This plugin does not offer support for adding a Boost nav drawer item itself, but we would like to reference the https://moodle.org/plugins/local_boostnavigation plugin for this job.
 After installing <em>local_boostnavigation</em> to your Moodle instance, please add the following line to the <code>local_boostnavigation | insertcustomcoursenodesusers</code> setting:
 <div class="highlight"><pre><span></span><code>Opencast Videos|/blocks/opencast/index.php?courseid={courseid}|||editingteacher,manager|admin|OR|fa-film|opencast|grades
 </code></pre></div>

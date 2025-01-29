@@ -101,13 +101,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><strong>Enable Chunkupload:</strong> If enabled, it will be possible, to upload videos using the <em>chunkupload</em> plugin. Defaults to yes.</p>
 </li>
 <li>
-<p><strong>Video file size limitation mode:</strong> Use this option to specify whether to limit the video file size. If "Limited video size" is selected, you can define the video size limit in the corresponding setting.</p>
+<p><strong>Video file size limitation mode:</strong> Use this option to specify whether to limit the video file size. If &ldquo;Limited video size&rdquo; is selected, you can define the video size limit in the corresponding setting.</p>
 </li>
 <li>
 <p><strong>Video size limit:</strong> Limits the file size of uploaded videos through the <em>chunkupload</em>. The default is 2.0 GB.</p>
 </li>
 <li>
-<p><strong>Offer filepicker as alternative:</strong> If this option is enabled, a checkbox, labeled as 'Use Moodle default file picker to access all repositories' will be shown below the <em>chunkupload</em> widget. As soon as this checkbox is checked, the <em>chunkupload</em> widget is hidden and the Moodle default file picker is shown, giving access to all Moodle repositories. Defaults to yes.</p>
+<p><strong>Offer filepicker as alternative:</strong> If this option is enabled, a checkbox, labeled as &lsquo;Use Moodle default file picker to access all repositories&rsquo; will be shown below the <em>chunkupload</em> widget. As soon as this checkbox is checked, the <em>chunkupload</em> widget is hidden and the Moodle default file picker is shown, giving access to all Moodle repositories. Defaults to yes.</p>
 </li>
 </ul>
 <h2 id="opencast-studio-integration">Opencast Studio integration</h2>
@@ -123,10 +123,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><strong>Opencast Studio Base URL:</strong> The base URL, to be used to call Opencast Studio. The base URL of the associated Opencast instance is used, if empty. Defaults to empty.</p>
 </li>
 <li>
-<p><strong>Show a redirect back button in Studio:</strong> When enabled, Opencast Studio then renders an additional button "Exit and go back" after up- or downloading the recording. Defaults to no.</p>
+<p><strong>Show a redirect back button in Studio:</strong> When enabled, Opencast Studio then renders an additional button &ldquo;Exit and go back&rdquo; after up- or downloading the recording. Defaults to no.</p>
 </li>
 <li>
-<p><strong>Label for Studio's return button:</strong> This label works as a short description, where the return link leads to. This label will be appended to the Opencast Studio return button text. If empty, the Moodle site name will be passed as label. Defaults to empty.</p>
+<p><strong>Label for Studio&rsquo;s return button:</strong> This label works as a short description, where the return link leads to. This label will be appended to the Opencast Studio return button text. If empty, the Moodle site name will be passed as label. Defaults to empty.</p>
 </li>
 <li>
 <p><strong>Custom Studio return endpoint URL:</strong> If empty, the return URL redirects back to the same Moodle Opencast block overview, where the request comes from. A custom endpoint URL will then be passed to Opencast Studio as return URL, if configured. In this case, an admin is able, to use two placeholders including [OCINSTANCEID] and [COURSEID]. Please NOTE: The URL must be relative to <code>wwwroot</code>. Defaults to <code>/blocks/opencast/index.php?courseid=[COURSEID]&amp;ocinstanceid=[OCINSTANCEID]</code>.</p>
@@ -171,7 +171,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
 </ul>
 <p>This features helps, to remove the pending notification jobs from the list, and it is done through a scheduled task, that is recommended to run once a day. Defaults to 0.<br>
-  NOTE: (zero) "0" value disables the setting.</p>
+  NOTE: (zero) &ldquo;0&rdquo; value disables the setting.</p>
 <h2 id="control-episode-visibility">Control episode visibility</h2>
 <p>In this section, you can configure, whether the teacher is allowed, to control the visibility of an Opencast episode, after the episode has been processed. The options are:</p>
 <ul>
@@ -188,7 +188,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><strong>Waiting time for scheduled visibility change (Minutes):</strong> It defines a minimum waiting time (in minutes), that a scheduled visibility change process should wait. This time span will be added to the current time for the scheduled video change date field in the add video form. It will also be used, to validate that field. Based on how fast the Opencast instance processes the videos, this waiting time could be configured. Defaults to 20.<br></p>
 </li>
 </ul>
-<p>NOTE: When empty or (zero) "0", the default value is used.</p>
+<p>NOTE: When empty or (zero) &ldquo;0&rdquo;, the default value is used.</p>
 <h2 id="opencast-activity-modules">Opencast activity modules</h2>
 <p>If you also have the <em>Opencast Video Provider</em> activity installed, you can configure it in this section.</p>
 <ul>
@@ -239,13 +239,13 @@ as well as properties for those transcription files.</p>
 <ul>
 <li><strong>Transcription Service Types (Flavors):</strong> These service types (flavors) will be presented as select (dropdown) options, to select from, when uploading transcriptions. It is a key-value pair of information, by which the keys are consumed by Opencast and values are human-readable information, that describe the type of transcription service.</li>
 </ul>
-<p><strong>(Multi-Language filters)</strong> In order for each value of the dropdown (select) to get translated using filters such as <a href="https://moodle.org/plugins/filter_multilang2">Multi-Language Content (v2)</a>, each value should contain the placeholder, defined by that filter i.e. <em>"{mlang en}Amberscript German{mlang}{mlang de}Amberscript Deutsch{mlang}"</em>.</p>
+<p><strong>(Multi-Language filters)</strong> In order for each value of the dropdown (select) to get translated using filters such as <a href="https://moodle.org/plugins/filter_multilang2">Multi-Language Content (v2)</a>, each value should contain the placeholder, defined by that filter i.e. <em>&ldquo;{mlang en}Amberscript German{mlang}{mlang de}Amberscript Deutsch{mlang}&rdquo;</em>.</p>
 <ul>
 <li>
 <p><strong>Maximum number of sets to upload:</strong> Specifies, how many transcription boxes should be provided to teachers, to upload. In the case, that it is not correctly set, only one field set will be provided. Defaults to 3.</p>
 </li>
 <li>
-<p><strong>Allowed transcription file extensions:</strong> Comma separated list of allowed transcription file extensions (extensions must exist in Moodle's <em>File types</em> list). If left blank, all extensions with the type <em>'HTML track files'</em> are allowed (again see <em>File types</em>).</p>
+<p><strong>Allowed transcription file extensions:</strong> Comma separated list of allowed transcription file extensions (extensions must exist in Moodle&rsquo;s <em>File types</em> list). If left blank, all extensions with the type <em>&lsquo;HTML track files&rsquo;</em> are allowed (again see <em>File types</em>).</p>
 </li>
 </ul>
 <p>For the transcription features to work properly, the Opencast user should have the following roles:
@@ -336,7 +336,7 @@ as well as properties for those transcription files.</p>
 <p><strong>Support email:</strong> Email address, to which reports are sent, if users report problems with videos. Defaults to empty.</p>
 </li>
 <li>
-<p><strong>Terms of use:</strong> If you enter some text, a checkbox with the terms of use will appear on the "Video upload" page. The users must accept the entered terms of use, before they can upload the video. Defaults to empty.</p>
+<p><strong>Terms of use:</strong> If you enter some text, a checkbox with the terms of use will appear on the &ldquo;Video upload&rdquo; page. The users must accept the entered terms of use, before they can upload the video. Defaults to empty.</p>
 </li>
 </ul>
 

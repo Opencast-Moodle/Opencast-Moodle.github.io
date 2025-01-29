@@ -286,10 +286,10 @@ View the setting "Site Errors" instead of "All activities" you can view only tho
 <p>This plugin is designed as block and, to be used, it will be initially added to a Moodle course by a teacher. The block shows a quick overview over the videos, which are uploaded in the block, but mainly links to a fullscreen overview page, where the full functionality of the plugin is provided.</p>
 <p>If you want to provide the plugin in every course by default without requiring, that the teachers adds it to the course, please have a look at Moodle core's <code>$CFG-&gt;defaultblocks</code> setting which is set in <em>config.php</em> only and which is described on https://github.com/moodle/moodle/blob/master/config-dist.php.</p>
 <p>As an alternative to placing the block by default, you might also want to add a link to the plugin's overview page to the Boost nav drawer. This plugin does not offer support for adding a Boost nav drawer item itself, but we would like to reference the https://moodle.org/plugins/local_boostnavigation plugin for this job.
-After installing <em>local_boostnavigation</em> to your Moodle instance, please add the following line to the <code>local_boostnavigation | insertcustomcoursenodesusers</code> setting:</p>
-<pre><code>Opencast Videos|/blocks/opencast/index.php?courseid={courseid}|||editingteacher,manager|admin|OR|fa-film|opencast|grades
-</code></pre>
-<p>Please take extra care, that the <code>editingteacher,manager</code> list of roles should match the list of roles, who are given the <code>block/opencast:addvideo</code> capability in your Moodle instance.
+After installing <em>local_boostnavigation</em> to your Moodle instance, please add the following line to the <code>local_boostnavigation | insertcustomcoursenodesusers</code> setting:
+<div class="highlight"><pre><span></span><code>Opencast Videos|/blocks/opencast/index.php?courseid={courseid}|||editingteacher,manager|admin|OR|fa-film|opencast|grades
+</code></pre></div>
+Please take extra care, that the <code>editingteacher,manager</code> list of roles should match the list of roles, who are given the <code>block/opencast:addvideo</code> capability in your Moodle instance.
 After adding the Boost nav drawer item, you can also remove the <code>block/opencast:addinstance</code> capability from all roles, as adding the block is not really necessary anymore.</p>
 <h2 id="export-and-import-settings">Export and import settings</h2>
 <p>If you want to export and import the administrator settings of the block, you can use the <a href="https://moodle.org/plugins/block_admin_presets">Admin presets</a> block.

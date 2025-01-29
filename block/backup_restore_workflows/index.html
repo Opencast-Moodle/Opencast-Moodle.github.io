@@ -106,7 +106,7 @@ In our workflow definition example from above, the first workflow <em>lms-automa
 <p><code>DELETE FROM oc_assets_properties WHERE property_name='seriesID';</code></p>
 <h2 id="workflow-examples">Workflow examples</h2>
 <p>The workflow that is triggered by Moodle:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+<div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;definition xmlns=&quot;http://workflow.opencastproject.org&quot;&gt;
 
   &lt;id&gt;lms-automated-duplicate&lt;/id&gt;
@@ -161,9 +161,9 @@ In our workflow definition example from above, the first workflow <em>lms-automa
   &lt;/operations&gt;
 
 &lt;/definition&gt;
-</code></pre>
+</code></pre></div>
 <p>The first workflow triggers this second workflow on the duplicated <em>mediapackage</em>.</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+<div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;definition xmlns=&quot;http://workflow.opencastproject.org&quot;&gt;
   &lt;id&gt;lms-publish-duplicate&lt;/id&gt;
   &lt;title&gt;Publish a duplicate of an LMS upload&lt;/title&gt;
@@ -270,7 +270,7 @@ In our workflow definition example from above, the first workflow <em>lms-automa
 
   &lt;/operations&gt;
 &lt;/definition&gt;
-</code></pre>
+</code></pre></div>
 
   <br>
     

@@ -94,25 +94,21 @@ The process typically follows these stages:</p>
 <li><strong>Opencast API Class Usage:</strong></li>
 </ul>
 <p>The Opencast PHP Library is integrated into the <code>tool_opencast</code> plugin. Use the <code>opencastapi</code> property of the <code>api</code> class for API calls instead of direct cURL functions, which are deprecated. Example usage:</p>
-<pre><code class="language-php">
+<div class="highlight"><pre><span></span><code><span class="x">use tool_opencast\local\api;</span>
+<span class="x">use tool_opencast\exception\opencast_api_response_exception; // Exception handling class</span>
 
-use tool_opencast\local\api;
-use tool_opencast\exception\opencast_api_response_exception; // Exception handling class
+<span class="x">...</span>
 
-...
+<span class="x">$api = api::get_instance($ocinstanceid);</span>
+<span class="x">$response = $api-&gt;opencastapi-&gt;eventsApi-&gt;getAll(...);</span>
+<span class="x">$code = $response[&#39;code&#39;];</span>
 
-$api = api::get_instance($ocinstanceid);
-$response = $api-&gt;opencastapi-&gt;eventsApi-&gt;getAll(...);
-$code = $response['code'];
+<span class="x">if ($code != 200) {</span>
+<span class="x">  throw new opencast_api_response_exception($response);</span>
+<span class="x">}</span>
 
-if ($code != 200) {
-  throw new opencast_api_response_exception($response);
-}
-
-...
-
-
-</code></pre>
+<span class="x">...</span>
+</code></pre></div>
 <p><strong>Note:</strong> More details on the Opencast API Library can be found <a href="https://github.com/elan-ev/opencast-php-library/wiki">here</a>.</p>
 <ul>
 <li>

@@ -101,7 +101,7 @@ One default publication channel is, e.g., the <code>engage-player</code> channel
 Each publication has a publication URL, which points to the page under which the video is published (e.g. an HTTP page with the Opencast player).
 Additionally, publications can contain a set of media data with URLs to the media files themselves (e.g. an MP4 file).</p>
 <p>For the configuration of the publication channel, you can either use the default publication channel <code>engage-player</code> or use your own publication channel. To use your own publication channel, you will have to modify the publish workflow and add a <code>publish-configure</code> operation. For example:</p>
-<pre><code>&lt;operation
+<div class="highlight"><pre><span></span><code>&lt;operation
   id=&quot;publish-configure&quot;
   exception-handler-workflow=&quot;partial-error&quot;
   description=&quot;Publish to external api publication channel&quot;&gt;
@@ -114,8 +114,7 @@ Additionally, publications can contain a set of media data with URLs to the medi
     &lt;configuration key=&quot;check-availability&quot;&gt;true&lt;/configuration&gt;
   &lt;/configurations&gt;
 &lt;/operation&gt;
-
-</code></pre>
+</code></pre></div>
 
   <br>
     

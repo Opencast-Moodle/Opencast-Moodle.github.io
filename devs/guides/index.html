@@ -101,38 +101,38 @@ The process typically follows these stages:</p>
 <ul>
 <li>
 <p><strong>Opencast API Class Usage:</strong>
-     The Opencast PHP Library is integrated into the <code>tool_opencast</code> plugin. Use the <code>opencastapi</code> property of the <code>api</code> class for API calls instead of direct cURL functions, which are deprecated. Example usage:
-     ```php
-     use tool_opencast\local\api;
-     use tool_opencast\exception\opencast_api_response_exception; // Exception handling class</p>
+    The Opencast PHP Library is integrated into the <code>tool_opencast</code> plugin. Use the <code>opencastapi</code> property of the <code>api</code> class for API calls instead of direct cURL functions, which are deprecated. Example usage:</p>
+<p>```php</p>
+<p>use tool_opencast\local\api;
+use tool_opencast\exception\opencast_api_response_exception; // Exception handling class</p>
 <p>...</p>
 <p>$api = api::get_instance($ocinstanceid);
- $response = $api-&gt;opencastapi-&gt;eventsApi-&gt;getAll(...);
- $code = $response['code'];</p>
+$response = $api-&gt;opencastapi-&gt;eventsApi-&gt;getAll(...);
+$code = $response['code'];</p>
 <p>if ($code != 200) {
-    throw new opencast_api_response_exception($response);
- }</p>
+  throw new opencast_api_response_exception($response);
+}</p>
 <p>...</p>
-<p>```
- <strong>Note:</strong> More details on the Opencast API Library can be found <a href="https://github.com/elan-ev/opencast-php-library/wiki">here</a>.</p>
+<p>```</p>
+<p><strong>Note:</strong> More details on the Opencast API Library can be found <a href="https://github.com/elan-ev/opencast-php-library/wiki">here</a>.</p>
 </li>
 <li>
 <p><strong>Unified Exception Handling:</strong>
-     From <code>tool_opencast</code> version <strong>4.5-r4</strong>, the <code>opencast_api_response_exception</code> class is introduced to handle API call exceptions in a centralized way. Therefore, using it is highly encouraged!</p>
+    From <code>tool_opencast</code> version <strong>4.5-r4</strong>, the <code>opencast_api_response_exception</code> class is introduced to handle API call exceptions in a centralized way. Therefore, using it is highly encouraged!</p>
 </li>
 <li>
 <p><strong>Plugin Interconnectivity:</strong>
-     Changes in one plugin may impact others. Before making changes, understand how plugins interact, especially the <code>api</code> class in <code>tool_opencast</code>, which is widely used across all plugins.</p>
+    Changes in one plugin may impact others. Before making changes, understand how plugins interact, especially the <code>api</code> class in <code>tool_opencast</code>, which is widely used across all plugins.</p>
 </li>
 <li>
 <p><strong>Coding Standards:</strong>
-     All plugins follow Moodle's coding standards, enforced through <code>moodle-plugin-ci</code> in GitHub Actions.
-     Always create a pull request instead of directly pushing changes in order to make sure the checks are passed.
-     A PR is only reviewed if all automated checks pass.</p>
+    All plugins follow Moodle's coding standards, enforced through <code>moodle-plugin-ci</code> in GitHub Actions.
+    Always create a pull request instead of directly pushing changes in order to make sure the checks are passed.
+    A PR is only reviewed if all automated checks pass.</p>
 </li>
 <li>
 <p><strong>Automated Testing:</strong>
-     If your changes affect existing functionality or introduce new features, include appropriate <strong>PHPUnit</strong> or <strong>Behat</strong> tests to ensure stability.</p>
+    If your changes affect existing functionality or introduce new features, include appropriate <strong>PHPUnit</strong> or <strong>Behat</strong> tests to ensure stability.</p>
 </li>
 <li>
 <p><strong>Creating Pull Requests:</strong></p>
@@ -151,7 +151,7 @@ The process typically follows these stages:</p>
 </li>
 </ul>
 <p>The Moodle Opencast community holds a <strong>developer group meeting</strong> every second Friday of the month, alternating with core meetings. Participation is encouraged to stay informed about the latest developments, roadmaps, and to ask questions.
-   For details, check the <a href="https://calendar.google.com/calendar/embed?src=opencast.org_tje2fm34ernnbm0f9saiogp8g0%40group.calendar.google.com&amp;ctz=Europe%2FAmsterdam">official community calendar</a> and look for <strong>[Moodle] Dev Group Meeting</strong>.</p>
+  For details, check the <a href="https://calendar.google.com/calendar/embed?src=opencast.org_tje2fm34ernnbm0f9saiogp8g0%40group.calendar.google.com&amp;ctz=Europe%2FAmsterdam">official community calendar</a> and look for <strong>[Moodle] Dev Group Meeting</strong>.</p>
 
   <br>
     

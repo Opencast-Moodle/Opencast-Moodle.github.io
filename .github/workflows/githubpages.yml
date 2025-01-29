@@ -28,7 +28,7 @@ jobs:
           python-version: 3.9
 
       - name: Install python dependencies
-        run: pip -q install mkdocs mkdocs-windmill mkdocs-material
+        run: pip -q install mkdocs-material mkdocs-windmill
 
       - name: Run build script
         env:

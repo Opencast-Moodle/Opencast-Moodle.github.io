@@ -68,12 +68,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../general_settings/" class="btn btn-xs btn-default pull-right">
+      <a href="../shared_settings/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../general_settings/" class="btn btn-xs btn-link">
-        General Settings
+      <a href="../shared_settings/" class="btn btn-xs btn-link">
+        Shared Settings
       </a>
     </div>
     
@@ -90,42 +90,54 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="opencast-block-plugin">Opencast block plugin</h1>
-<p>This block can be used, to link Moodle courses to Opencast series. 
-Users with respective privileges (in the following called instructors) can use this block, to upload videos via Moodle to Opencast. 
+<p>This block can be used, to link Moodle courses to Opencast series.
+Users with respective privileges (in the following called instructors) can use this block, to upload videos via Moodle to Opencast.
 These videos are transmitted to the Opencast system by a cronjob and create an event in the respective series there.
 Other plugins, like the <em>Opencast activity plugin</em>, can be used afterwards, to provide a complete series or a bulk of videos within a course.</p>
-<p>The block can be used, to automatically set the access privileges of Moodle users enrolled in the course. 
-All events belonging to the series are displayed in the block. 
-This way, the instructors get an overview of all recorded lectures as well as planned ones. 
+<p>The block can be used, to automatically set the access privileges of Moodle users enrolled in the course.
+All events belonging to the series are displayed in the block.
+This way, the instructors get an overview of all recorded lectures as well as planned ones.
 Further, if set up correctly, the instructors are able to restrict the visibility to Moodle groups or prevent access by students at all.</p>
 <h2 id="installation">Installation</h2>
-<p>The Opencast block plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-block_opencast/releases">GitHub</a> as well as from the <a href="https://moodle.org/plugins/block_opencast">Moodle plugins directory</a>.</p>
-<h2 id="requirements">Requirements</h2>
+<p>The Opencast block plugin can be obtained from the following sources:</p>
 <ul>
-<li>Installed and configured <a href="https://github.com/Opencast-Moodle/moodle-tool_opencast">Opencast API tool</a></li>
+<li>
+<p>The <a href="https://github.com/Opencast-Moodle/moodle-block_opencast/releases">GitHub repository</a>, which provides the latest releases, source code, Roadmap and current developments.</p>
+</li>
+<li>
+<p>The <a href="https://moodle.org/plugins/block_opencast">Moodle plugins directory</a>, offering a convenient "Official" installation package directly within Moodle.</p>
+</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<p>To use the Opencast Videos block plugin, the following dependency must be installed and properly configured:</p>
+<ul>
+<li><a href="https://github.com/Opencast-Moodle/moodle-tool_opencast">Opencast API tool (tool_opencast)</a></li>
 </ul>
 <h2 id="features">Features</h2>
+<p>The Opencast Videos block plugin provides the following key features:</p>
 <ul>
-<li>Upload videos to Opencast</li>
+<li>Upload videos to Opencast, either individually or in batches.</li>
 <li>Record videos using Opencast studio</li>
-<li>Overview of recorded and planned videos in the course</li>
-<li>Overview of all series and videos that a use has access to (independent of a course) (<a href="../global_overview/">Global overview</a>)</li>
-<li>Attaching transcription files to videos</li>
-<li>Send process notifications about videos</li>
+<li>View an overview of recorded and scheduled videos within a course.</li>
+<li>Access an overview of all series and videos available to a user, regardless of the course (<a href="../global_overview/">Global overview</a>).</li>
+<li>Attach and manage transcription (subtitle) files for videos.</li>
+<li>Send process notifications about videos.</li>
 <li>Live status updates of the uploading status and workflow processing states of videos</li>
-<li>Download processed videos from Opencast  </li>
+<li>Download processed videos from Opencast</li>
 <li>Edit the video in the Opencast editor</li>
-<li>Edit metadata and delete videos</li>
+<li>Edit and update metadata of videos and series</li>
+<li>Delete videos</li>
+<li>Create new Opencast series from Moodle</li>
+<li>Linking an existing Opencast series to the course</li>
 <li>Restrict the visibility of videos to Moodle groups or prevent access by students at all</li>
 <li>Allow teachers, to start Opencast workflows for videos</li>
-<li>Linking an existing Opencast series to the course</li>
 <li>Import videos from other Moodle courses via course reuse, series import or manual video bulk import</li>
 <li>Report problems to a support team with automatically including technical information</li>
-<li>In integration with the activity <a href="https://moodle.org/plugins/mod_opencast">Opencast Video Provider</a>:<ul>
+<li>In integration with the activity <a href="https://moodle.org/plugins/mod_opencast">Opencast Video Provider</a>:</li>
 <li>Provide the series or single videos as activity for students to watch directly in Moodle</li>
 <li>Restrict the visibility using the extensive Moodle activity access settings</li>
-</ul>
-</li>
+<li>Perform mass actions in video lists, enabling bulk operations such as metadata updates or deletions.</li>
+<li>Offer a Workflow Configuration panel for teachers to customize workflow options during video uploads.</li>
 </ul>
 <h2 id="configuration">Configuration</h2>
 <p>The block has many settings, that allow the administrator, to further specify the features or to turn them off.
@@ -269,7 +281,7 @@ Those capabilities are given in an alphabetical order by the following table:</p
 </table>
 <h2 id="logging">Logging</h2>
 <p>The execution of upload jobs are being logged, which can be viewed at <em>Site administration</em>-&gt;<em>Reports</em>-&gt;<em>Logs</em>.
-View the setting "Site Errors" instead of "All activities" you can view only those upload jobs, which failed.    </p>
+View the setting "Site Errors" instead of "All activities" you can view only those upload jobs, which failed.</p>
 <h2 id="placement">Placement</h2>
 <p>This plugin is designed as block and, to be used, it will be initially added to a Moodle course by a teacher. The block shows a quick overview over the videos, which are uploaded in the block, but mainly links to a fullscreen overview page, where the full functionality of the plugin is provided.</p>
 <p>If you want to provide the plugin in every course by default without requiring, that the teachers adds it to the course, please have a look at Moodle core's <code>$CFG-&gt;defaultblocks</code> setting which is set in <em>config.php</em> only and which is described on https://github.com/moodle/moodle/blob/master/config-dist.php.</p>
@@ -295,12 +307,12 @@ In Moodle 4, this functionality is partly integrated into the core.</p>
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../general_settings/" class="btn btn-xs btn-default pull-right">
+      <a href="../shared_settings/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../general_settings/" class="btn btn-xs btn-link">
-        General Settings
+      <a href="../shared_settings/" class="btn btn-xs btn-link">
+        Shared Settings
       </a>
     </div>
     

@@ -97,29 +97,58 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h2 id="settings-for-the-chunkuploader">Settings for the chunkuploader</h2>
 <p>If you also have the <em>chunkuploader</em> installed, you configure it in this section.</p>
 <ul>
-<li><strong>Enable Chunkupload:</strong> If enabled, it will be possible, to upload videos using the <em>chunkupload</em> plugin. Defaults to yes.</li>
-<li><strong>Video size limit:</strong> Limits the file size of uploaded videos through the <em>chunkupload</em>. The default is 2.0 GB.</li>
-<li><strong>Offer filepicker as alternative:</strong> If this option is enabled, a checkbox, labeled as 'Use Moodle default file picker to access all repositories' will be shown below the <em>chunkupload</em> widget. As soon as this checkbox is checked, the <em>chunkupload</em> widget is hidden and the Moodle default file picker is shown, giving access to all Moodle repositories. Defaults to yes.</li>
+<li>
+<p><strong>Enable Chunkupload:</strong> If enabled, it will be possible, to upload videos using the <em>chunkupload</em> plugin. Defaults to yes.</p>
+</li>
+<li>
+<p><strong>Video file size limitation mode:</strong> Use this option to specify whether to limit the video file size. If "Limited video size" is selected, you can define the video size limit in the corresponding setting.</p>
+</li>
+<li>
+<p><strong>Video size limit:</strong> Limits the file size of uploaded videos through the <em>chunkupload</em>. The default is 2.0 GB.</p>
+</li>
+<li>
+<p><strong>Offer filepicker as alternative:</strong> If this option is enabled, a checkbox, labeled as 'Use Moodle default file picker to access all repositories' will be shown below the <em>chunkupload</em> widget. As soon as this checkbox is checked, the <em>chunkupload</em> widget is hidden and the Moodle default file picker is shown, giving access to all Moodle repositories. Defaults to yes.</p>
+</li>
 </ul>
 <h2 id="opencast-studio-integration">Opencast Studio integration</h2>
 <p>In this section, you can enable the feature, to add <a href="https://docs.opencast.org/develop/admin/#modules/studio/">Opencast Studio</a> support to the block. The options are:</p>
 <ul>
-<li><strong>Show the link to opencast studio:</strong> This option renders a button to Opencast Studio in the block content and the block overview. Defaults to no.</li>
-<li><strong>Redirect to Studio in a new tab:</strong> If enabled, the Opencast Studio opens in a new tab. Defaults to yes.</li>
-<li><strong>Opencast Studio Base URL:</strong> The base URL, to be used to call Opencast Studio. The base URL of the associated Opencast instance is used, if empty. Defaults to empty.</li>
-<li><strong>Show a redirect back button in Studio:</strong> When enabled, Opencast Studio then renders an additional button "Exit and go back" after up- or downloading the recording. Defaults to no.</li>
-<li><strong>Label for Studio's return button:</strong> This label works as a short description, where the return link leads to. This label will be appended to the Opencast Studio return button text. If empty, the Moodle site name will be passed as label. Defaults to empty.</li>
-<li><strong>Custom Studio return endpoint URL:</strong> If empty, the return URL redirects back to the same Moodle Opencast block overview, where the request comes from. A custom endpoint URL will then be passed to Opencast Studio as return URL, if configured. In this case, an admin is able, to use two placeholders including [OCINSTANCEID] and [COURSEID]. Please NOTE: The URL must be relative to <code>wwwroot</code>. Defaults to <code>/blocks/opencast/index.php?courseid=[COURSEID]&amp;ocinstanceid=[OCINSTANCEID]</code>.</li>
-<li><strong>Custom Studio settings filename:</strong> This custom settings filename will be appended to the query, when redirecting to Opencast Studio. Afterwards Opencast Studio looks for that filename relative to its directory and reads its settings from that file. Note, that this feature requires Opencast 14.2 or later. Defaults to empty.</li>
+<li>
+<p><strong>Show the link to opencast studio:</strong> This option renders a button to Opencast Studio in the block content and the block overview. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Redirect to Studio in a new tab:</strong> If enabled, the Opencast Studio opens in a new tab. Defaults to yes.</p>
+</li>
+<li>
+<p><strong>Opencast Studio Base URL:</strong> The base URL, to be used to call Opencast Studio. The base URL of the associated Opencast instance is used, if empty. Defaults to empty.</p>
+</li>
+<li>
+<p><strong>Show a redirect back button in Studio:</strong> When enabled, Opencast Studio then renders an additional button "Exit and go back" after up- or downloading the recording. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Label for Studio's return button:</strong> This label works as a short description, where the return link leads to. This label will be appended to the Opencast Studio return button text. If empty, the Moodle site name will be passed as label. Defaults to empty.</p>
+</li>
+<li>
+<p><strong>Custom Studio return endpoint URL:</strong> If empty, the return URL redirects back to the same Moodle Opencast block overview, where the request comes from. A custom endpoint URL will then be passed to Opencast Studio as return URL, if configured. In this case, an admin is able, to use two placeholders including [OCINSTANCEID] and [COURSEID]. Please NOTE: The URL must be relative to <code>wwwroot</code>. Defaults to <code>/blocks/opencast/index.php?courseid=[COURSEID]&amp;ocinstanceid=[OCINSTANCEID]</code>.</p>
+</li>
+<li>
+<p><strong>Custom Studio settings filename:</strong> This custom settings filename will be appended to the query, when redirecting to Opencast Studio. Afterwards Opencast Studio looks for that filename relative to its directory and reads its settings from that file. Note, that this feature requires Opencast 14.2 or later. Defaults to empty.</p>
+</li>
 </ul>
-<p>If LTI is configured in the <em>Opencast API plugin</em>, the access to Opencast Studio is initiated with LTI, so that users are directly authenticated. </p>
+<p>If LTI is configured in the <em>Opencast API plugin</em>, the access to Opencast Studio is initiated with LTI, so that users are directly authenticated.</p>
 <p><strong>Recommendation:</strong> It is possible, to configure Opencast Studio, to add certain ACLs to the recorded videos. It is recommended, to add the same ACLs to recorded videos as to uploaded videos via the block.</p>
 <h2 id="opencast-editor-integration">Opencast Editor integration</h2>
 <p>In this section, you can enable the feature, to add <a href="https://github.com/opencast/opencast-editor">Opencast Editor</a> support to the block. The options are:</p>
 <ul>
-<li><strong>Show the link to opencast editor in the action menu:</strong> This option renders a button to Opencast Editor in the block content and the block overview. The other settings of this section and the LTI credentials have to be configured as well. Defaults to no.</li>
-<li><strong>Opencast Editor Base URL:</strong> The base URL to be used, to call the Opencast Editor. The base URL of the associated Opencast instance is used, if empty. Defaults to empty.</li>
-<li><strong>Opencast Editor Endpoint:</strong> The Opencast Editor endpoint, to access the editor. The <em>mediapackage</em> ID will be added at the end of that URL. Defaults to <code>/editor-ui/index.html?mediaPackageId=</code>.</li>
+<li>
+<p><strong>Show the link to opencast editor in the action menu:</strong> This option renders a button to Opencast Editor in the block content and the block overview. The other settings of this section and the LTI credentials have to be configured as well. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Opencast Editor Base URL:</strong> The base URL to be used, to call the Opencast Editor. The base URL of the associated Opencast instance is used, if empty. Defaults to empty.</p>
+</li>
+<li>
+<p><strong>Opencast Editor Endpoint:</strong> The Opencast Editor endpoint, to access the editor. The <em>mediapackage</em> ID will be added at the end of that URL. Defaults to <code>/editor-ui/index.html?mediaPackageId=</code>.</p>
+</li>
 </ul>
 <p>If LTI is configured in the <em>Opencast API plugin</em>, the access to the Opencast Editor is initiated with LTI, so that users are directly authenticated.</p>
 <h2 id="engage-player-integration">Engage player integration</h2>
@@ -130,53 +159,94 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h2 id="notifications">Notifications</h2>
 <p>In this section, you can configure, whether teachers should receive notifications about the processing status of videos after upload.</p>
 <ul>
-<li><strong>Allow event process status notification:</strong> This option allows the system, to send notifications about the status of uploaded videos from Opencast during the process to the users. This option only includes the uploader of the video in the user list. To notify all teachers of the course, the setting <em>Notify all course teachers about the event process status</em> should be enabled.
-  This feature is realized through a scheduled task, that is recommended to run every minute. Defaults to no.</li>
-<li><strong>Notify all course teachers about the event process status:</strong> With this option, apart from the uploader of the video, all the teachers of the course, where the video is uploaded from, get notified about the Opencast processing status (see the setting <em>Allow event process status notification</em>). Defaults to no.</li>
-<li><strong>Cleanup notification jobs after (Days):</strong> This setting sets a deadline in days for the jobs, that are not yet completed. After the deadline was reached, the job will be deleted despite its process state.
-  This features helps, to remove the pending notification jobs from the list, and it is done through a scheduled task, that is recommended to run once a day. Defaults to 0.<br>
-  NOTE: (zero) "0" value disables the setting.</li>
+<li><strong>Allow event process status notification:</strong> This option allows the system, to send notifications about the status of uploaded videos from Opencast during the process to the users. This option only includes the uploader of the video in the user list. To notify all teachers of the course, the setting <em>Notify all course teachers about the event process status</em> should be enabled.</li>
 </ul>
+<p>This feature is realized through a scheduled task, that is recommended to run every minute. Defaults to no.</p>
+<ul>
+<li>
+<p><strong>Notify all course teachers about the event process status:</strong> With this option, apart from the uploader of the video, all the teachers of the course, where the video is uploaded from, get notified about the Opencast processing status (see the setting <em>Allow event process status notification</em>). Defaults to no.</p>
+</li>
+<li>
+<p><strong>Cleanup notification jobs after (Days):</strong> This setting sets a deadline in days for the jobs, that are not yet completed. After the deadline was reached, the job will be deleted despite its process state.</p>
+</li>
+</ul>
+<p>This features helps, to remove the pending notification jobs from the list, and it is done through a scheduled task, that is recommended to run once a day. Defaults to 0.<br>
+  NOTE: (zero) "0" value disables the setting.</p>
 <h2 id="control-episode-visibility">Control episode visibility</h2>
 <p>In this section, you can configure, whether the teacher is allowed, to control the visibility of an Opencast episode, after the episode has been processed. The options are:</p>
 <ul>
-<li><strong>Enable visibility control:</strong> If enabled, teachers can control the visibility of an Opencast episode on upload. Defaults to yes.</li>
-<li><strong>Allow episode visibility control after processing:</strong> If enabled, teachers can control the visibility of an Opencast episode after the episode has been processed in Opencast. Defaults to yes.</li>
-<li><strong>Allow episode group restriction:</strong> If enabled, teachers can not only control the visibility of an Opencast episode for all course users, but can also restrict the visibility to particular course groups. Defaults to yes.</li>
-<li><strong>Waiting time for scheduled visibility change (Minutes):</strong> It defines a minimum waiting time (in minutes), that a scheduled visibility change process should wait. This time span will be added to the current time for the scheduled video change date field in the add video form. It will also be used, to validate that field. Based on how fast the Opencast instance processes the videos, this waiting time could be configured. Defaults to 20.<br>
-  NOTE: When empty or (zero) "0", the default value is used.</li>
+<li>
+<p><strong>Enable visibility control:</strong> If enabled, teachers can control the visibility of an Opencast episode on upload. Defaults to yes.</p>
+</li>
+<li>
+<p><strong>Allow episode visibility control after processing:</strong> If enabled, teachers can control the visibility of an Opencast episode after the episode has been processed in Opencast. Defaults to yes.</p>
+</li>
+<li>
+<p><strong>Allow episode group restriction:</strong> If enabled, teachers can not only control the visibility of an Opencast episode for all course users, but can also restrict the visibility to particular course groups. Defaults to yes.</p>
+</li>
+<li>
+<p><strong>Waiting time for scheduled visibility change (Minutes):</strong> It defines a minimum waiting time (in minutes), that a scheduled visibility change process should wait. This time span will be added to the current time for the scheduled video change date field in the add video form. It will also be used, to validate that field. Based on how fast the Opencast instance processes the videos, this waiting time could be configured. Defaults to 20.<br></p>
+</li>
 </ul>
+<p>NOTE: When empty or (zero) "0", the default value is used.</p>
 <h2 id="opencast-activity-modules">Opencast activity modules</h2>
 <p>If you also have the <em>Opencast Video Provider</em> activity installed, you can configure it in this section.</p>
 <ul>
-<li><strong>Enable Opencast activity:</strong> If enabled, teachers can add an activity for the series to the course. Defaults to no.</li>
-<li><strong>Default activity title:</strong> Default title, that is used, when a new Opencast activity is added to a course. Defaults to <em>Opencast videos</em>.</li>
-<li><strong>Add series module intro:</strong> If enabled, teachers can add a description to the Opencast activity series module, that is shown on the course overview page. Defaults to no.</li>
-<li><strong>Choose series module section:</strong> If enabled, teachers can choose the section, to which the Opencast activity series module will be added to. Defaults to no.</li>
-<li><strong>Set series module availability:</strong> If enabled, teachers can set the availability conditions, when a new Opencast LTI series module is added to a course. Defaults to no.</li>
-<li><strong>Enable Opencast activity for episodes:</strong> If enabled, teachers can add activities for episodes to the course. Defaults to no.</li>
-<li><strong>Add episode module intro:</strong> If enabled, teachers can add a description to the Opencast activity episode module, that is shown on the course overview page. Defaults to no.</li>
-<li><strong>Choose episode module section:</strong> If enabled, teachers can choose the section, to which the Opencast activity episode module will be added to. Defaults to no.</li>
-<li><strong>Set episode module availability:</strong> If enabled, teachers can set the availability conditions, when a new Opencast activity episode module is added to a course. Defaults to no.</li>
+<li>
+<p><strong>Enable Opencast activity:</strong> If enabled, teachers can add an activity for the series to the course. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Default activity title:</strong> Default title, that is used, when a new Opencast activity is added to a course. Defaults to <em>Opencast videos</em>.</p>
+</li>
+<li>
+<p><strong>Add series module intro:</strong> If enabled, teachers can add a description to the Opencast activity series module, that is shown on the course overview page. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Choose series module section:</strong> If enabled, teachers can choose the section, to which the Opencast activity series module will be added to. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Set series module availability:</strong> If enabled, teachers can set the availability conditions, when a new Opencast LTI series module is added to a course. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Enable Opencast activity for episodes:</strong> If enabled, teachers can add activities for episodes to the course. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Add episode module intro:</strong> If enabled, teachers can add a description to the Opencast activity episode module, that is shown on the course overview page. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Choose episode module section:</strong> If enabled, teachers can choose the section, to which the Opencast activity episode module will be added to. Defaults to no.</p>
+</li>
+<li>
+<p><strong>Set episode module availability:</strong> If enabled, teachers can set the availability conditions, when a new Opencast activity episode module is added to a course. Defaults to no.</p>
+</li>
 </ul>
 <p>For the availability features, the <em>Enable restricted access</em> feature must be activated in the global settings.</p>
 <h2 id="settings-for-transcription">Settings for Transcription</h2>
 <p>In this section, you can configure, whether transcription files can be attached to videos and different features
 as well as properties for those transcription files.</p>
 <ul>
-<li><strong>Workflow for transcription (speech to text):</strong> This workflow is triggered, when transcription files are attached to the video. If not set, uploading and managing transcriptions is not provided.
-By setting this workflow, a new section to upload transcription files in the add video page as well as a new action menu item in the overview page are provided, to upload/handle the new/current transcriptions files. 
-Defaults to empty.</li>
-<li><strong>Workflow for delete transcription:</strong> This workflow is triggered, when a transcription is deleted. It is required, to provide the deletion feature in order for an event, to be processed correctly.
-NOTE: If empty, the feature will be disabled. Defaults to empty.</li>
-<li><strong>Allow download transcriptions:</strong> If enabled, the transcription download button will be displayed in the manage transcriptions page, by which teachers are able, to download the transcriptions file.
-NOTE: In case you are using Opencast 13 or later, you need to make sure, that all prerequisites including LTI features and permissions to access <em>/assets/</em> endpoint for LTI users, are set correctly, as it is mandatory, to perform LTI call.
-Defaults to yes.</li>
-<li><strong>Transcription Service Types (Flavors):</strong> These service types (flavors) will be presented as select (dropdown) options, to select from, when uploading transcriptions. It is a key-value pair of information, by which the keys are consumed by Opencast and values are human-readable information, that describe the type of transcription service.
-<strong>(Multi-Language filters)</strong> In order for each value of the dropdown (select) to get translated using filters such as <a href="https://moodle.org/plugins/filter_multilang2">Multi-Language Content (v2)</a>, each value should contain the placeholder, defined by that filter i.e. <em>"{mlang en}Amberscript German{mlang}{mlang de}Amberscript Deutsch{mlang}"</em>.</li>
-<li><strong>Maximum number of sets to upload:</strong> Specifies, how many transcription boxes should be provided to teachers, to upload. In the case, that it is not correctly set, only one field set will be provided.
-Defaults to 3.</li>
-<li><strong>Allowed transcription file extensions:</strong> Comma separated list of allowed transcription file extensions (extensions must exist in Moodle's <em>File types</em> list). If left blank, all extensions with the type <em>'HTML track files'</em> are allowed (again see <em>File types</em>).</li>
+<li><strong>Workflow for transcription (speech to text):</strong> This workflow is triggered, when transcription files are attached to the video. If not set, uploading and managing transcriptions is not provided.</li>
+</ul>
+<p>By setting this workflow, a new section to upload transcription files in the add video page as well as a new action menu item in the overview page are provided, to upload/handle the new/current transcriptions files.Defaults to empty.</p>
+<ul>
+<li><strong>Workflow for delete transcription:</strong> This workflow is triggered, when a transcription is deleted. It is required, to provide the deletion feature in order for an event, to be processed correctly.</li>
+</ul>
+<p>NOTE: If empty, the feature will be disabled. Defaults to empty.</p>
+<ul>
+<li><strong>Allow download transcriptions:</strong> If enabled, the transcription download button will be displayed in the manage transcriptions page, by which teachers are able, to download the transcriptions file.</li>
+</ul>
+<p>NOTE: In case you are using Opencast 13 or later, you need to make sure, that all prerequisites including LTI features and permissions to access <em>/assets/</em> endpoint for LTI users, are set correctly, as it is mandatory, to perform LTI call. Defaults to yes.</p>
+<ul>
+<li><strong>Transcription Service Types (Flavors):</strong> These service types (flavors) will be presented as select (dropdown) options, to select from, when uploading transcriptions. It is a key-value pair of information, by which the keys are consumed by Opencast and values are human-readable information, that describe the type of transcription service.</li>
+</ul>
+<p><strong>(Multi-Language filters)</strong> In order for each value of the dropdown (select) to get translated using filters such as <a href="https://moodle.org/plugins/filter_multilang2">Multi-Language Content (v2)</a>, each value should contain the placeholder, defined by that filter i.e. <em>"{mlang en}Amberscript German{mlang}{mlang de}Amberscript Deutsch{mlang}"</em>.</p>
+<ul>
+<li>
+<p><strong>Maximum number of sets to upload:</strong> Specifies, how many transcription boxes should be provided to teachers, to upload. In the case, that it is not correctly set, only one field set will be provided. Defaults to 3.</p>
+</li>
+<li>
+<p><strong>Allowed transcription file extensions:</strong> Comma separated list of allowed transcription file extensions (extensions must exist in Moodle's <em>File types</em> list). If left blank, all extensions with the type <em>'HTML track files'</em> are allowed (again see <em>File types</em>).</p>
+</li>
 </ul>
 <p>For the transcription features to work properly, the Opencast user should have the following roles:
 * <code>ROLE_UI_EVENTS_DETAILS_ASSETS_EDIT</code>
@@ -226,28 +296,48 @@ Defaults to 3.</li>
 <h2 id="live-status-update">Live Status Update</h2>
 <p>In this section, you can configure, whether uploading status and workflow processing states of videos will be watched and are visible.</p>
 <ul>
-<li><strong>Enable live status update feature:</strong> If enabled, uploading status and workflow processing states will be watched, when they are in an ongoing process.
-This is done, by pulling the status information for those processes in a one-second interval. Defaults to yes.</li>
-<li><strong>Page reload timeout (in seconds):</strong> The timeout in seconds, by which the page will be reloaded, when there is an updated status identified. If empty or less than 0, a default value of 3 seconds will be considered.
-NOTE: Before reloading the page, a teachers will be notified. The reload is important, so that every required backend process takes place. Defaults to 3.</li>
+<li><strong>Enable live status update feature:</strong> If enabled, uploading status and workflow processing states will be watched, when they are in an ongoing process.</li>
 </ul>
+<p>This is done, by pulling the status information for those processes in a one-second interval. Defaults to yes.</p>
+<ul>
+<li><strong>Page reload timeout (in seconds):</strong> The timeout in seconds, by which the page will be reloaded, when there is an updated status identified. If empty or less than 0, a default value of 3 seconds will be considered.</li>
+</ul>
+<p>NOTE: Before reloading the page, a teachers will be notified. The reload is important, so that every required backend process takes place. Defaults to 3.</p>
 <h2 id="workflows-privacy-notice">Workflows Privacy Notice</h2>
 <p>In this section, you can configure the privacy notice for workflows in the start workflow dialog.</p>
 <ul>
-<li><strong>Workflow Privacy Notice Info Text:</strong> This input is used, to provide information about privacy notice for workflows in the start workflow dialog.
-NOTE: If empty, no notice will be displayed. Defaults to empty.</li>
-<li><strong>Workflows Definition List:</strong> A comma separated list of workflow definitions, by which the privacy notice is displayed. When empty, the privacy notice will be displayed for all workflows. Defaults to empty.</li>
-<li><strong>Workflow Privacy Notice Title:</strong> A title, to be displayed in start workflow dialog. It is intended, to be configurable in order, to be adjusted by the users. When empty, default string is used. Defaults to empty.</li>
+<li><strong>Workflow Privacy Notice Info Text:</strong> This input is used, to provide information about privacy notice for workflows in the start workflow dialog.</li>
+</ul>
+<p>NOTE: If empty, no notice will be displayed. Defaults to empty.</p>
+<ul>
+<li>
+<p><strong>Workflows Definition List:</strong> A comma separated list of workflow definitions, by which the privacy notice is displayed. When empty, the privacy notice will be displayed for all workflows. Defaults to empty.</p>
+</li>
+<li>
+<p><strong>Workflow Privacy Notice Title:</strong> A title, to be displayed in start workflow dialog. It is intended, to be configurable in order, to be adjusted by the users. When empty, default string is used. Defaults to empty.</p>
+</li>
 </ul>
 <h2 id="additional-features_1">Additional features</h2>
 <p>In this section, unrelated configurations are collected.</p>
 <ul>
-<li><strong>Download channel:</strong> If not empty, teachers can download processed videos. The video files are served from the specified Opencast channel. Defaults to <em>api</em>.</li>
-<li><strong>Direct access channel:</strong> Opencast publication channel, from which the videos are served, when accessing them directly. Leaving this option empty, will disable the feature. Defaults to empty.
-NOTE: It is recommended, to take further caution when using this feature, since it reveals the direct video data on the Opencast server upon accessing the link.</li>
-<li><strong>Workflow tag:</strong> Comma separated list of tags for Opencast workflows, that can be configured by the admin and manually started by teachers. Defaults to empty.</li>
-<li><strong>Support email:</strong> Email address, to which reports are sent, if users report problems with videos. Defaults to empty.</li>
-<li><strong>Terms of use:</strong> If you enter some text, a checkbox with the terms of use will appear on the "Video upload" page. The users must accept the entered terms of use, before they can upload the video. Defaults to empty.</li>
+<li>
+<p><strong>Download channel:</strong> If not empty, teachers can download processed videos. The video files are served from the specified Opencast channel. Defaults to <em>api</em>.</p>
+</li>
+<li>
+<p><strong>Direct access channel:</strong> Opencast publication channel, from which the videos are served, when accessing them directly. Leaving this option empty, will disable the feature. Defaults to empty.</p>
+</li>
+</ul>
+<p>NOTE: It is recommended, to take further caution when using this feature, since it reveals the direct video data on the Opencast server upon accessing the link.</p>
+<ul>
+<li>
+<p><strong>Workflow tag:</strong> Comma separated list of tags for Opencast workflows, that can be configured by the admin and manually started by teachers. Defaults to empty.</p>
+</li>
+<li>
+<p><strong>Support email:</strong> Email address, to which reports are sent, if users report problems with videos. Defaults to empty.</p>
+</li>
+<li>
+<p><strong>Terms of use:</strong> If you enter some text, a checkbox with the terms of use will appear on the "Video upload" page. The users must accept the entered terms of use, before they can upload the video. Defaults to empty.</p>
+</li>
 </ul>
 
   <br>

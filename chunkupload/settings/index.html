@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Settings - Opencast Moodle Plugins Documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/extra.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Settings", url: "#_top", children: [
+              {title: "General settings:", url: "#general-settings" },
+              {title: "Auxiliary Settings in Opencast Videos Block Plugin", url: "#auxiliary-settings-in-opencast-videos-block-plugin" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+
+    <h1 id="settings">Settings</h1>
+<p>The configuration settings for the Opencast Chunkupload plugin are divided into two parts: general plugin settings and auxiliary settings within the Opencast Videos block (<code>block_opencast</code>) plugin.</p>
+<h2 id="general-settings">General settings:</h2>
+<p>The Opencast Chunkupload plugin provides several configurable options for administrators.</p>
+<p><img src="https://raw.githubusercontent.com/Opencast-Moodle/documentation/main/docs/img/chunkupload/settings.png" width="500"></p>
+<ol>
+<li>
+<p><strong>Chunk size (MB):</strong> Defines the size (in MB) of each video file chunk to be uploaded.</p>
+</li>
+<li>
+<p><strong>Duration until unused token is deleted:</strong> Specifies the time period after which unused upload tokens will be deleted automatically.</p>
+</li>
+<li>
+<p><strong>Duration until uncompleted file upload is deleted:</strong> Specifies the duration after which incomplete file uploads will be removed.</p>
+</li>
+<li>
+<p><strong>Duration until completed file upload is deleted:</strong> Sets the retention period for successfully uploaded files before they are automatically deleted as part of the cleanup process.</p>
+</li>
+</ol>
+<hr />
+<h2 id="auxiliary-settings-in-opencast-videos-block-plugin">Auxiliary Settings in Opencast Videos Block Plugin</h2>
+<p>When the <em>Chunkupload</em> plugin is installed, the Opencast Videos block plugin (<code>block_opencast</code>) automatically includes a dedicated settings section under the <a href="../../block/additional_features/"><strong>Additional features</strong></a> section. This section, titled <strong>"Settings for the chunkuploader"</strong>, allows administrators to control Chunkupload functionality within the block plugin.</p>
+<p><img src="https://raw.githubusercontent.com/Opencast-Moodle/documentation/main/docs/img/chunkupload/block_settings_1.png" width="500"></p>
+<ol>
+<li>
+<p><strong>Enable Chunkupload:</strong> Enables or disables the ability to upload videos using the chunkupload plugin.</p>
+</li>
+<li>
+<p><strong>Video file size limitation mode:</strong> Determines whether to enforce a file size limit. If "Limited video size" is selected, the administrator can define the limit in the subsequent setting.</p>
+</li>
+<li>
+<p><strong>Video size limit:</strong> Specifies the maximum allowed video file size if the limitation mode is enabled.</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Opencast-Moodle/documentation/main/docs/img/chunkupload/block_settings_2.png" width="500"></p>
+<ol>
+<li><strong>Offer filepicker as alternative:</strong> If enabled, users can choose to use the regular Moodle file picker instead of the chunkupload functionality via a checkbox.</li>
+</ol>
+
+  <br>
+    
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/Opencast-Moodle/documentation/edit/master/docs/chunkupload/settings.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

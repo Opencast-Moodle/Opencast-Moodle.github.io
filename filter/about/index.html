@@ -33,7 +33,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Opencast filter plugin", url: "#_top", children: [
+          {title: "Opencast Filter Plugin", url: "#_top", children: [
               {title: "Installation", url: "#installation" },
               {title: "Requirements", url: "#requirements" },
               {title: "Configuration", url: "#configuration" },
@@ -84,23 +84,32 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="opencast-filter-plugin">Opencast filter plugin</h1>
-<p>The <em>Opencast filter</em> can be used, to embed Opencast videos.
-The filter takes the HTML pasted by the <em>Opencast repository</em> and replaces it by an <em>iframe</em>, which loads the <a href="https://paellaplayer.upv.es/">Paella Player</a> with the respective Opencast event.
-The filter itself has no influence on the embedded content, but simply takes the information created by the repository.
-Look into the documentation of <a href="https://github.com/Opencast-Moodle/moodle-repository_opencast">Repository_opencast</a> for details on that.</p>
-<p><img alt="Filter opencast demonstration" src="../../img/filter.png" /></p>
+    <h1 id="opencast-filter-plugin">Opencast Filter Plugin</h1>
+<p>The <em>Opencast Filter</em> plugin enhances the way Opencast videos are displayed in Moodle by automatically embedding them within an iframe.</p>
+<p>When a user adds the video in the text editor and selects an Opencast video via <em>Opencast Repository</em> video selection form, this filter plugin replaces the link with an iframe that loads the <a href="https://paellaplayer.upv.es/">Paella Player</a>, ensuring a seamless video playback experience within Moodle.</p>
+<p>It is important to note that the filter itself does not modify the embedded content; it simply processes the links created by the repository and displays the appropriate video.</p>
+<p>For more details on configuring and using the Opencast repository, refer to the <a href="https://github.com/Opencast-Moodle/moodle-repository_opencast">Repository Opencast documentation</a>.</p>
+<p><img alt="Opencast Filter Demonstration" src="../../img/filter.png" /></p>
 <h2 id="installation">Installation</h2>
-<p>The Opencast filter plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-filter_opencast/releases">GitHub</a>  as well as from the <a href="https://moodle.org/plugins/filter_opencast">Moodle plugins directory</a>.</p>
-<h2 id="requirements">Requirements</h2>
+<p>The Opencast filter plugin can be obtained from the following sources:</p>
 <ul>
-<li><a href="https://github.com/Opencast-Moodle/moodle-tool_opencast">tool_opencast</a></li>
-<li><a href="https://github.com/Opencast-Moodle/moodle-mod_opencast">mod_opencast</a></li>
-<li><a href="https://github.com/Opencast-Moodle/moodle-repository_opencast">repository_opencast</a>: The filter can be installed without the repository,
-  but it is necessary, to allow teachers, to insert Opencast videos.</li>
+<li>
+<p>The <a href="https://github.com/Opencast-Moodle/moodle-filter_opencast/releases">GitHub repository</a>, which provides the latest releases, source code, Roadmap and current developments.</p>
+</li>
+<li>
+<p>The <a href="https://moodle.org/plugins/filter_opencast">Moodle plugins directory</a>, offering a convenient "Official" installation package directly within Moodle.</p>
+</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<p>The following plugins are required for full functionality:</p>
+<ul>
+<li><a href="https://github.com/Opencast-Moodle/moodle-tool_opencast">Opencast API plugin (tool_opencast)</a></li>
+<li><a href="https://github.com/Opencast-Moodle/moodle-mod_opencast">Opencat activity plugin (mod_opencast)</a></li>
+<li><a href="https://github.com/Opencast-Moodle/moodle-repository_opencast">Opencast repository plugin (repository_opencast)</a>:
+  While the filter can be installed without this plugin, it is required to enable teachers to insert Opencast videos into the text editor.</li>
 </ul>
 <h2 id="configuration">Configuration</h2>
-<p>The configuration of the <em>Opencast filter</em> is documented in the <a href="../settings/">settings</a> page.</p>
+<p>For detailed configuration instructions, refer to the <a href="../settings/">settings page</a>.</p>
 
   <br>
     

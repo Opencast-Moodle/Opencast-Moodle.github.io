@@ -37,6 +37,7 @@
               {title: "Installation", url: "#installation" },
               {title: "Requirements", url: "#requirements" },
               {title: "Configuration", url: "#configuration" },
+              {title: "Chunkupload in Action", url: "#chunkupload-in-action" },
           ]},
         ];
 
@@ -85,16 +86,29 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="opencast-chunkupload-plugin">Opencast chunkupload plugin</h1>
-<p>The <em>chunkupload</em> plugin provides the possibility of using a chunked upload. By using a chunked upload, users are able, to upload files, that are bigger then the size limit of the Moodle course.</p>
+<p>The <em>Chunkupload</em> plugin enables users to upload video files to Opencast in smaller, manageable chunks. This approach bypasses the Moodle course upload size limit, allowing users to successfully upload large files without interruptions or failures due to size restrictions.</p>
 <h2 id="installation">Installation</h2>
-<p>The <em>chunkupload</em> plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-local_chunkupload/releases">GitHub</a> as well as from the <a href="https://moodle.org/plugins/local_chunkupload">Moodle plugins directory</a>.</p>
-<h2 id="requirements">Requirements</h2>
+<p>The Opencast Chunkupload plugin can be obtained from the following sources:</p>
 <ul>
-<li>Min. Moodle Version: 3.7</li>
-<li>Installed Opencast block.</li>
+<li>
+<p>The <a href="https://github.com/Opencast-Moodle/moodle-local_chunkupload/releases">GitHub repository</a>, which provides the latest releases, source code, Roadmap and current developments.</p>
+</li>
+<li>
+<p>The <a href="https://moodle.org/plugins/local_chunkupload">Moodle plugins directory</a>, offering a convenient "Official" installation package directly within Moodle.</p>
+</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<p>To ensure the proper functioning of the Opencast Chunkupload plugin, the following requirements must be met:</p>
+<ul>
+<li><strong>Minimum Moodle Version:</strong> <em>3.7</em></li>
+<li><strong><a href="https://github.com/Opencast-Moodle/moodle-block_opencast">Opencast Videos block (block_opencast)</a>:</strong>
+  This plugin must be installed and properly configured to enable chunked video uploads.</li>
 </ul>
 <h2 id="configuration">Configuration</h2>
-<p>For the configuration see the <a href="../../block/additional_features/">additional features</a> of the block.</p>
+<p>For detailed configuration instructions, refer to the <a href="../settings/">settings page</a>.</p>
+<h2 id="chunkupload-in-action">Chunkupload in Action</h2>
+<p>Once the plugin is installed and correctly configured, users will see a new chunked file uploader element available exclusively on the <strong>"Add video"</strong> page. The uploader interface appears as shown below:</p>
+<p><img alt="Chunkupload Element" src="../../img/chunkupload/chunkuploader_element.png" /></p>
 
   <br>
     

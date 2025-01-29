@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Contribution Guidelines - Opencast Moodle Plugins Documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/extra.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Development Guide", url: "#_top", children: [
+              {title: "Source Control Repositories", url: "#source-control-repositories" },
+              {title: "Development Lifecycle", url: "#development-lifecycle" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../../filter/settings/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../filter/settings/" class="btn btn-xs btn-link">
+        Settings
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="development-guide">Development Guide</h1>
+<p>If you're interested in contributing to the Moodle Opencast plugins, this guide provides essential information to help you understand the development environment and processes.</p>
+<h2 id="source-control-repositories">Source Control Repositories</h2>
+<p>All Moodle Opencast plugins are hosted on GitHub under the <a href="https://github.com/Opencast-Moodle">Opencast Moodle Plugins organization</a>.</p>
+<h2 id="development-lifecycle">Development Lifecycle</h2>
+<p>Understanding the development lifecycle of Moodle Opencast plugins is crucial for efficient collaboration.
+The process typically follows these stages:</p>
+<ol>
+<li>
+<p><strong>Issue Creation/Selection:</strong></p>
+</li>
+<li>
+<p>Development begins with an issue in the relevant GitHub repository of the targeted plugin.</p>
+</li>
+<li>If you're working on an issue (e.g., bug fix or feature request), ensure a <strong>detailed description</strong> is provided before starting development. If the description is unclear, ask the issue creator for clarification.</li>
+<li>Always use the appropriate issue template (e.g., bug report, feature request).</li>
+<li>Assign the issue to yourself to improve tracking and management.</li>
+<li>
+<p>For discussions or questions, use GitHub Discussions, the Element Community Chat, or contact the repository manager.</p>
+</li>
+<li>
+<p><strong>Development Phase:</strong></p>
+</li>
+</ol>
+<p>Once an issue is assigned, follow best practices to ensure maintainability and compatibility with other plugins. Key considerations include:</p>
+<ul>
+<li>
+<p><strong>Opencast API Class Usage:</strong>
+     The Opencast PHP Library is integrated into the <code>tool_opencast</code> plugin. Use the <code>opencastapi</code> property of the <code>api</code> class for API calls instead of direct cURL functions, which are deprecated. Example usage:
+     ```php
+     use tool_opencast\local\api;
+     use tool_opencast\exception\opencast_api_response_exception; // Exception handling class</p>
+<p>...</p>
+<p>$api = api::get_instance($ocinstanceid);
+ $response = $api-&gt;opencastapi-&gt;eventsApi-&gt;getAll(...);
+ $code = $response['code'];</p>
+<p>if ($code != 200) {
+    throw new opencast_api_response_exception($response);
+ }</p>
+<p>...</p>
+<p>```
+ <strong>Note:</strong> More details on the Opencast API Library can be found <a href="https://github.com/elan-ev/opencast-php-library/wiki">here</a>.</p>
+</li>
+<li>
+<p><strong>Unified Exception Handling:</strong>
+     From <code>tool_opencast</code> version <strong>4.5-r4</strong>, the <code>opencast_api_response_exception</code> class is introduced to handle API call exceptions in a centralized way. Therefore, using it is highly encouraged!</p>
+</li>
+<li>
+<p><strong>Plugin Interconnectivity:</strong>
+     Changes in one plugin may impact others. Before making changes, understand how plugins interact, especially the <code>api</code> class in <code>tool_opencast</code>, which is widely used across all plugins.</p>
+</li>
+<li>
+<p><strong>Coding Standards:</strong>
+     All plugins follow Moodle's coding standards, enforced through <code>moodle-plugin-ci</code> in GitHub Actions.
+     Always create a pull request instead of directly pushing changes in order to make sure the checks are passed.
+     A PR is only reviewed if all automated checks pass.</p>
+</li>
+<li>
+<p><strong>Automated Testing:</strong>
+     If your changes affect existing functionality or introduce new features, include appropriate <strong>PHPUnit</strong> or <strong>Behat</strong> tests to ensure stability.</p>
+</li>
+<li>
+<p><strong>Creating Pull Requests:</strong></p>
+</li>
+</ul>
+<p>Every change must be submitted via a pull request (PR) against the <code>main</code> branch of the targeted plugin.</p>
+<ul>
+<li>Add relevant <strong>labels</strong> to PRs and issues.</li>
+<li>Assign a reviewer <strong>only when all CI checks pass</strong>.</li>
+<li>Ensure PR descriptions are comprehensive, covering dependencies, test scenarios, and additional context.</li>
+<li>
+<p>Address reviewer feedback promptly to facilitate merging.</p>
+</li>
+<li>
+<p><strong>Developer Group Meetings Participation:</strong></p>
+</li>
+</ul>
+<p>The Moodle Opencast community holds a <strong>developer group meeting</strong> every second Friday of the month, alternating with core meetings. Participation is encouraged to stay informed about the latest developments, roadmaps, and to ask questions.
+   For details, check the <a href="https://calendar.google.com/calendar/embed?src=opencast.org_tje2fm34ernnbm0f9saiogp8g0%40group.calendar.google.com&amp;ctz=Europe%2FAmsterdam">official community calendar</a> and look for <strong>[Moodle] Dev Group Meeting</strong>.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../../filter/settings/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../filter/settings/" class="btn btn-xs btn-link">
+        Settings
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/Opencast-Moodle/documentation/edit/master/docs/devs/guides.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

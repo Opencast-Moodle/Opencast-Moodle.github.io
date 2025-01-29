@@ -59,6 +59,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
+    <div class="wm-article-nav pull-right">
+      <a href="../../devs/guides/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../devs/guides/" class="btn btn-xs btn-link">
+        Contribution Guidelines
+      </a>
+    </div>
+    
     <div class="wm-article-nav">
       <a href="../about/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -72,14 +82,32 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="settings">Settings</h1>
-<p>There are only two settings for the Opencast filter.</p>
+<p>The plugin provides the following configuration options:</p>
 <p><img alt="Filter opencast configuration" src="../../img/filter_config.png" /></p>
-<ul>
-<li><strong>URL templates for filtering:</strong> URLs matching this template are replaced with the Opencast player. 
-To define the correct URL, you should check which URL is inserted into a text by the repository. In general, you must define only one URL. In the URL, you must use the placeholder <em>\[EPISODEID]</em>, to indicate, where the episode ID is contained in the URL, e.g. <code>http://stable.opencast.de/play/[EPISODEID]</code>.</li>
-<li><strong>URL to Paella config.json:</strong> Defines an absolute or relative URL to the <code>config.json</code>, that is used by the Paella Player. This config can be adapted, if you want to modify the look or behavior of the Paella player.</li>
-</ul>
-<p>Once you configured the filter, you need to activate the filter.</p>
+<ol>
+<li><strong>URL templates for filtering:</strong>
+   Defines the URL patterns that will be replaced with the Opencast player.</li>
+<li>To determine the correct URL, check which URL is inserted into the text by the repository.</li>
+<li>Typically, only one URL needs to be defined.</li>
+<li>
+<p>Use the placeholder <code>\[EPISODEID]</code> in the URL to indicate where the episode ID should be inserted, e.g., <code>http://stable.opencast.de/play/[EPISODEID]</code>.</p>
+</li>
+<li>
+<p><strong>URL to Paella <code>config.json</code>:</strong>
+   Specifies an absolute or relative URL to the <code>config.json</code> file used by the Paella Player.</p>
+</li>
+<li>
+<p>This configuration file can be customized to modify the appearance or behavior of the Paella Player.</p>
+</li>
+<li>
+<p><strong>Enable LTI authentication:</strong>
+   Enables authentication to ensure videos are displayed correctly when Opencast is behind the <em>Secure Static Files</em> security layer.</p>
+</li>
+<li>When enabled, videos will be displayed in the default Opencast video player.</li>
+<li>It uses the LTI Credentials configured in Opencast API (tool_opencast) plugin.</li>
+<li><strong>Important Note</strong>: As mentioned in the <em>Opencast API (tool_opencast)</em> plugin <a href="../../tool/settings/">settings</a>, if you plan to use the LTI Authentication feature and have a multi-node Opencast instance, you must add an additional role (<code>ROLE_UI_EVENTS_EMBEDDING_CODE_VIEW</code>) to the Opencast API user's roles to ensure proper functionality.</li>
+</ol>
+<p><strong>NOTE</strong>: After configuring this plugin, you must activate it in the filters.</p>
 
   <br>
     
@@ -90,6 +118,16 @@ To define the correct URL, you should check which URL is inserted into a text by
     
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../devs/guides/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../devs/guides/" class="btn btn-xs btn-link">
+        Contribution Guidelines
+      </a>
+    </div>
     
     <div class="wm-article-nav">
       <a href="../about/" class="btn btn-xs btn-default pull-left">

@@ -53,18 +53,82 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../general_settings/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../general_settings/" class="btn btn-xs btn-link">
+        General Settings
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../about/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../about/" class="btn btn-xs btn-link">
+        About
+      </a>
+    </div>
+    
+  </div>
+
+    
 
     <h1 id="shared-settings">Shared Settings</h1>
-<p>This section explains the shared settings.</p>
+<p>This section describes the shared settings available in the Opencast Videos block plugin.</p>
 <ul>
-<li><strong>Cache valid time:</strong> Time in seconds, before the cache for the video data of each course is refreshed.<br>
-The <em>Opencast block plugin</em> uses that cache, to provide the video data, that is shown by the embedded block overview in a course, faster.
-Note, that that cache is invalidated for a course, if the fullscreen overview page of the block is loaded for that course.</li>
-<li><strong>Moodle to Opencast upload timeout:</strong> Configures the time in seconds, a single video upload may take during the background uploading task.</li>
+<li><strong>Cache valid time:</strong>
+  Specifies the duration (in seconds) before the cached video data for each course is refreshed.</li>
 </ul>
+<p>The <em>Opencast Videos block plugin</em> utilizes caching to accelerate the display of video data in the embedded block overview in a course.</p>
+<p>It is important to note that the cache for a course is automatically invalidated when the fullscreen overview page of the block is accessed within that course.</p>
+<ul>
+<li><strong>Moodle to Opencast upload timeout:</strong>
+  Defines the maximum duration (in seconds) that a single video upload process is allowed to run during the background uploading task.</li>
+</ul>
+<p>Adjust this setting based on network conditions and server capacity to ensure successful uploads without interruptions.</p>
+<ul>
+<li><strong>Limit failed upload attempts:</strong>
+  Sets a maximum number of failed upload attempts before the upload process is removed from the upload queue.</li>
+</ul>
+<p>When an upload exceeds the specified failure limit, it is moved to an <em>"Archiving"</em> state, where upload data is retained but requires manual intervention by teachers or managers to reinitiate the upload process.</p>
 
   <br>
     
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../general_settings/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../general_settings/" class="btn btn-xs btn-link">
+        General Settings
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../about/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../about/" class="btn btn-xs btn-link">
+        About
+      </a>
+    </div>
+    
+  </div>
 
     <br>
 </div>

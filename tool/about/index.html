@@ -84,11 +84,22 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="opencast-api-plugin">Opencast API plugin</h1>
-<p>The Opencast API plugin provides API functions as general settings for the other plugins. The tool stores the relation between courses and series UIDs and offers webservice endpoints for the <a href="https://docs.opencast.org/develop/admin/#configuration/security.user.moodle/">opencast role provider</a>.</p>
+<p>The Opencast API plugin serves as the core integration layer between Moodle and Opencast, providing essential API functions and general settings required by other Opencast-related plugins. This plugin plays a crucial role in managing the relationship between Moodle courses and Opencast series UIDs, ensuring seamless data mapping and synchronization.</p>
+<p>In addition to storing course-to-series associations, the Opencast API plugin offers web service endpoints that facilitate interaction with external tools such as the <a href="https://docs.opencast.org/develop/admin/#configuration/security.user.moodle/">Opencast role provider</a>, enabling streamlined user role management.</p>
+<p>Furthermore, the plugin acts as the central hub for communication and configuration, offering core functionalities, shared utilities, and foundational classes that support the operation of other Opencast plugins within Moodle. By utilizing this plugin, institutions can efficiently manage Opencast integrations, ensuring consistent and scalable workflows across their learning environments.</p>
 <h2 id="installation">Installation</h2>
-<p>The Opencast API plugin is available from <a href="https://github.com/Opencast-Moodle/moodle-tool_opencast/releases">GitHub</a> as well as from the <a href="https://moodle.org/plugins/tool_opencast">Moodle plugins directory</a>.</p>
+<p>The Opencast API plugin can be obtained from the following sources:</p>
+<ul>
+<li>
+<p>The <a href="https://github.com/Opencast-Moodle/moodle-tool_opencast/releases">GitHub repository</a>, which provides the latest releases, source code, Roadmap and current developments.</p>
+</li>
+<li>
+<p>The <a href="https://moodle.org/plugins/tool_opencast">Moodle plugins directory</a>, offering a convenient "Official" installation package directly within Moodle.</p>
+</li>
+</ul>
 <h2 id="configuration">Configuration</h2>
-<p>For the configuration see the <a href="../settings/">settings</a> page.</p>
+<p>For detailed configuration instructions, refer to the <a href="../settings/">settings page</a>.</p>
+<p><strong>NOTE</strong>: Starting from 2025, major settings of the Opencast Videos plugin will be integrated into the Opencast API plugin.</p>
 
   <br>
     

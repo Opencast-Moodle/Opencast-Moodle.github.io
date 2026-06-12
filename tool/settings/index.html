@@ -37,6 +37,7 @@
               {title: "Instances", url: "#instances" },
               {title: "Prerequisites", url: "#prerequisites" },
               {title: "Instance Configurations", url: "#instance-configurations" },
+              {title: "JWT Authentication", url: "#jwt-authentication" },
               {title: "Maintenance Settings", url: "#maintenance-settings" },
               {title: "Connection test tool", url: "#connection-test-tool" },
           ]},
@@ -149,6 +150,39 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <p>For LTI configuration details, see <a href="https://docs.opencast.org/r/16.x/admin/#configuration/ltimodule/#about-lti">LTI</a>.</p>
 <p><img alt="Tool Opencast Settings Configurations" src="../../img/tool/configurations.png" /></p>
+<h2 id="jwt-authentication">JWT Authentication</h2>
+<p>If you are new to JWT or want to know more about its underlying architecture, step by step configuration, claim mapping, and security requirements, refer to the <a href="../../auth/moodle-opencast-jwt-guid/">Moodle Opencast JWT Authentication Guide</a>. It is highly recommended to read this guidance before configuring the fields below.</p>
+<h3 id="jwt-configurations">JWT Configurations</h3>
+<ul>
+<li>
+<p><strong>Enable JWT Authenticahtion</strong>: When enabled, Moodle uses JSON Web Tokens (JWT) to access assets and resources in Opencast.</p>
+</li>
+<li>
+<p><strong>Private Key (full text)</strong>: The complete string of your private cryptographic key (RSA), used by Moodle to sign outbound tokens for Opencast validation.</p>
+</li>
+<li>
+<p><strong>Token lifetime (duration)</strong>: Specifies how long (in seconds) a standard signed token remains valid after generation before expiring.</p>
+</li>
+<li>
+<p><strong>Video proxy token lifetime</strong>: Defines how long a video proxy token remains valid before expiration, specified in seconds. This applies directly to video proxy delivery contexts, such as the Opencast H5P Extensions.</p>
+</li>
+<li>
+<p><strong>Signing algorithm</strong>: Specifies the cryptographic algorithm used to sign the token payload (e.g., RS256).</p>
+</li>
+<li>
+<p><strong>Player iframe URL path</strong>: The specific player web path configuration used to securely embed and display the video iframe with JWT query parameter support.</p>
+</li>
+<li>
+<p><strong>Studio roles</strong>: The specific user role claim injected into the token payload when a user accesses Opencast Studio.</p>
+</li>
+<li>
+<p><strong>Editor roles</strong>: The specific user role claim injected into the token payload when a user accesses the Opencast Editor.</p>
+</li>
+<li>
+<p><strong>Annotation-Tool roles</strong>: The specific user role claim injected into the token payload when a user accesses the Opencast Annotation-Tool.</p>
+</li>
+</ul>
+<p><img alt="JWT Configuration" src="../../img/tool/jwt.png" /></p>
 <h2 id="maintenance-settings">Maintenance Settings</h2>
 <p>The maintenance settings section allows you to control access to Opencast during maintenance periods. Options include:</p>
 <ul>

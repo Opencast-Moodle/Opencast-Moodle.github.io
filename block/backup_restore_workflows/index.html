@@ -106,8 +106,8 @@ In our workflow definition example from above, the first workflow <em>lms-automa
 <p><code>DELETE FROM oc_assets_properties WHERE property_name='seriesID';</code></p>
 <h2 id="workflow-examples">Workflow examples</h2>
 <p>The workflow that is triggered by Moodle:</p>
-<div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;definition xmlns=&quot;http://workflow.opencastproject.org&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;definition xmlns="http://workflow.opencastproject.org"&gt;
 
   &lt;id&gt;lms-automated-duplicate&lt;/id&gt;
   &lt;title&gt;LMS Upload aus dem LMS duplizieren&lt;/title&gt;
@@ -119,42 +119,42 @@ In our workflow definition example from above, the first workflow <em>lms-automa
 
     &lt;!-- Create the new events --&gt;
     &lt;operation
-      id=&quot;duplicate-event&quot;
-      fail-on-error=&quot;true&quot;
-      exception-handler-workflow=&quot;partial-error&quot;
-      description=&quot;Duplicate Event&quot;&gt;
+      id="duplicate-event"
+      fail-on-error="true"
+      exception-handler-workflow="partial-error"
+      description="Duplicate Event"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;source-flavors&quot;&gt;*/source,*/prepared,*/search+preview,dublincore/*,*/player+preview,*/feed+preview,*/timeline+preview,smil/*,security/xacml+series&lt;/configuration&gt;
-        &lt;configuration key=&quot;number-of-events&quot;&gt;1&lt;/configuration&gt;
-        &lt;configuration key=&quot;target-tags&quot;&gt;+copied&lt;/configuration&gt;
-        &lt;configuration key=&quot;property-namespaces&quot;&gt;org.opencastproject.assetmanager.security, org.opencastproject.workflow.configuration&lt;/configuration&gt;
-        &lt;configuration key=&quot;copy-number-prefix&quot;&gt;Kopie&lt;/configuration&gt;
+        &lt;configuration key="source-flavors"&gt;*/source,*/prepared,*/search+preview,dublincore/*,*/player+preview,*/feed+preview,*/timeline+preview,smil/*,security/xacml+series&lt;/configuration&gt;
+        &lt;configuration key="number-of-events"&gt;1&lt;/configuration&gt;
+        &lt;configuration key="target-tags"&gt;+copied&lt;/configuration&gt;
+        &lt;configuration key="property-namespaces"&gt;org.opencastproject.assetmanager.security, org.opencastproject.workflow.configuration&lt;/configuration&gt;
+        &lt;configuration key="copy-number-prefix"&gt;Kopie&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
     &lt;!-- Start new workflow --&gt;
     &lt;operation
-      id=&quot;start-workflow&quot;
-      fail-on-error=&quot;true&quot;
-      retry-strategy=&quot;hold&quot;
-      max-attempts=&quot;5&quot;
-      exception-handler-workflow=&quot;partial-error&quot;
-      description=&quot;Start workflow on duplicate&quot;&gt;
+      id="start-workflow"
+      fail-on-error="true"
+      retry-strategy="hold"
+      max-attempts="5"
+      exception-handler-workflow="partial-error"
+      description="Start workflow on duplicate"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;workflow-definition&quot;&gt;lms-publish-duplicate&lt;/configuration&gt;
-        &lt;configuration key=&quot;media-package&quot;&gt;${duplicate_media_package_1_id}&lt;/configuration&gt;
-        &lt;configuration key=&quot;seriesId&quot;&gt;${seriesId}&lt;/configuration&gt;
+        &lt;configuration key="workflow-definition"&gt;lms-publish-duplicate&lt;/configuration&gt;
+        &lt;configuration key="media-package"&gt;${duplicate_media_package_1_id}&lt;/configuration&gt;
+        &lt;configuration key="seriesId"&gt;${seriesId}&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
     &lt;!-- Cleanup the working file repository --&gt;
     &lt;operation
-      id=&quot;cleanup&quot;
-      fail-on-error=&quot;false&quot;
-      description=&quot;Remove temporary processing artifacts&quot;&gt;
+      id="cleanup"
+      fail-on-error="false"
+      description="Remove temporary processing artifacts"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;preserve-flavors&quot;&gt;security/*&lt;/configuration&gt;
-        &lt;configuration key=&quot;delete-external&quot;&gt;true&lt;/configuration&gt;
+        &lt;configuration key="preserve-flavors"&gt;security/*&lt;/configuration&gt;
+        &lt;configuration key="delete-external"&gt;true&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
@@ -163,8 +163,8 @@ In our workflow definition example from above, the first workflow <em>lms-automa
 &lt;/definition&gt;
 </code></pre></div>
 <p>The first workflow triggers this second workflow on the duplicated <em>mediapackage</em>.</p>
-<div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;definition xmlns=&quot;http://workflow.opencastproject.org&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;definition xmlns="http://workflow.opencastproject.org"&gt;
   &lt;id&gt;lms-publish-duplicate&lt;/id&gt;
   &lt;title&gt;Publish a duplicate of an LMS upload&lt;/title&gt;
 
@@ -173,26 +173,26 @@ In our workflow definition example from above, the first workflow <em>lms-automa
     &lt;!-- Apply the default workflow configuration --&gt;
 
     &lt;operation
-      id=&quot;defaults&quot;
-      description=&quot;Applying default configuration values&quot;&gt;
+      id="defaults"
+      description="Applying default configuration values"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;straightToPublishing&quot;&gt;true&lt;/configuration&gt;
-        &lt;configuration key=&quot;flagForCutting&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;flagForReview&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;flagQuality360p&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;flagQuality480p&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;flagQuality720p&quot;&gt;true&lt;/configuration&gt;
-        &lt;configuration key=&quot;flagQuality1080p&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;flagQuality2160p&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;publishToEngage&quot;&gt;true&lt;/configuration&gt;
-        &lt;configuration key=&quot;publishToApi&quot;&gt;true&lt;/configuration&gt;
-        &lt;configuration key=&quot;publishToOaiPmh&quot;&gt;true&lt;/configuration&gt;
-        &lt;configuration key=&quot;publishToYouTube&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;publishToAws&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;uploadedSearchPreview&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;publishLive&quot;&gt;false&lt;/configuration&gt;
-        &lt;configuration key=&quot;thumbnailType&quot;&gt;0&lt;/configuration&gt;
-        &lt;configuration key=&quot;thumbnailPosition&quot;&gt;1&lt;/configuration&gt;
+        &lt;configuration key="straightToPublishing"&gt;true&lt;/configuration&gt;
+        &lt;configuration key="flagForCutting"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="flagForReview"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="flagQuality360p"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="flagQuality480p"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="flagQuality720p"&gt;true&lt;/configuration&gt;
+        &lt;configuration key="flagQuality1080p"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="flagQuality2160p"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="publishToEngage"&gt;true&lt;/configuration&gt;
+        &lt;configuration key="publishToApi"&gt;true&lt;/configuration&gt;
+        &lt;configuration key="publishToOaiPmh"&gt;true&lt;/configuration&gt;
+        &lt;configuration key="publishToYouTube"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="publishToAws"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="uploadedSearchPreview"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="publishLive"&gt;false&lt;/configuration&gt;
+        &lt;configuration key="thumbnailType"&gt;0&lt;/configuration&gt;
+        &lt;configuration key="thumbnailPosition"&gt;1&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
@@ -200,53 +200,53 @@ In our workflow definition example from above, the first workflow <em>lms-automa
     &lt;!-- Apply series --&gt;
 
     &lt;operation
-      id=&quot;series&quot;
-      exception-handler-workflow=&quot;partial-error&quot;
-      description=&quot;Apply series metadata and acl&quot;&gt;
+      id="series"
+      exception-handler-workflow="partial-error"
+      description="Apply series metadata and acl"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;series&quot;&gt;${seriesId}&lt;/configuration&gt;
-        &lt;configuration key=&quot;attach&quot;&gt;*/*&lt;/configuration&gt;
-        &lt;configuration key=&quot;apply-acl&quot;&gt;true&lt;/configuration&gt;
-        &lt;configuration key=&quot;copy-metadata&quot;&gt;isPartOf&lt;/configuration&gt;
+        &lt;configuration key="series"&gt;${seriesId}&lt;/configuration&gt;
+        &lt;configuration key="attach"&gt;*/*&lt;/configuration&gt;
+        &lt;configuration key="apply-acl"&gt;true&lt;/configuration&gt;
+        &lt;configuration key="copy-metadata"&gt;isPartOf&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
     &lt;operation
-      id=&quot;tag&quot;
-      description=&quot;Tagging metadata catalogs for publication&quot;&gt;
+      id="tag"
+      description="Tagging metadata catalogs for publication"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;source-flavors&quot;&gt;dublincore/*,security/*&lt;/configuration&gt;
-        &lt;configuration key=&quot;target-tags&quot;&gt;+engage-download,+archive&lt;/configuration&gt;
+        &lt;configuration key="source-flavors"&gt;dublincore/*,security/*&lt;/configuration&gt;
+        &lt;configuration key="target-tags"&gt;+engage-download,+archive&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
     &lt;!-- Archive --&gt;
 
     &lt;operation
-      id=&quot;snapshot&quot;
-      description=&quot;Archive updated duplicate&quot;&gt;
+      id="snapshot"
+      description="Archive updated duplicate"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;source-tags&quot;&gt;archive&lt;/configuration&gt;
+        &lt;configuration key="source-tags"&gt;archive&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
     &lt;!-- Encode and publish --&gt;
 
     &lt;operation
-      id=&quot;include&quot;
-      description=&quot;Publish the recording&quot;&gt;
+      id="include"
+      description="Publish the recording"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;workflow-id&quot;&gt;partial-publish&lt;/configuration&gt;
+        &lt;configuration key="workflow-id"&gt;partial-publish&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
     &lt;!-- Archive after publish --&gt;
 
     &lt;operation
-      id=&quot;snapshot&quot;
-      description=&quot;Archive publish information&quot;&gt;
+      id="snapshot"
+      description="Archive publish information"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;source-tags&quot;&gt;archive&lt;/configuration&gt;
+        &lt;configuration key="source-tags"&gt;archive&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
@@ -259,12 +259,12 @@ In our workflow definition example from above, the first workflow <em>lms-automa
     &lt;!-- Clean the system from work artifacts --&gt;
 
     &lt;operation
-      id=&quot;cleanup&quot;
-      fail-on-error=&quot;false&quot;
-      description=&quot;Remove temporary processing artifacts&quot;&gt;
+      id="cleanup"
+      fail-on-error="false"
+      description="Remove temporary processing artifacts"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;preserve-flavors&quot;&gt;security/*&lt;/configuration&gt;
-        &lt;configuration key=&quot;delete-external&quot;&gt;true&lt;/configuration&gt;
+        &lt;configuration key="preserve-flavors"&gt;security/*&lt;/configuration&gt;
+        &lt;configuration key="delete-external"&gt;true&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 

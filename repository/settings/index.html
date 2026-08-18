@@ -102,16 +102,16 @@ Each publication has a publication URL, which points to the page under which the
 Additionally, publications can contain a set of media data with URLs to the media files themselves (e.g. an MP4 file).</p>
 <p>For the configuration of the publication channel, you can either use the default publication channel <code>engage-player</code> or use your own publication channel. To use your own publication channel, you will have to modify the publish workflow and add a <code>publish-configure</code> operation. For example:</p>
 <div class="highlight"><pre><span></span><code>&lt;operation
-  id=&quot;publish-configure&quot;
-  exception-handler-workflow=&quot;partial-error&quot;
-  description=&quot;Publish to external api publication channel&quot;&gt;
+  id="publish-configure"
+  exception-handler-workflow="partial-error"
+  description="Publish to external api publication channel"&gt;
   &lt;configurations&gt;
-    &lt;configuration key=&quot;channel-id&quot;&gt;api&lt;/configuration&gt;
-    &lt;configuration key=&quot;mimetype&quot;&gt;application/json&lt;/configuration&gt;
-    &lt;configuration key=&quot;source-tags&quot;&gt;engage-download,engage-streaming&lt;/configuration&gt;
-    &lt;configuration key=&quot;url-pattern&quot;&gt;https://HOSTNAME/paella/ui/watch.html?id=${event_id}&lt;/configuration&gt;
-    &lt;configuration key=&quot;with-published-elements&quot;&gt;false&lt;/configuration&gt;
-    &lt;configuration key=&quot;check-availability&quot;&gt;true&lt;/configuration&gt;
+    &lt;configuration key="channel-id"&gt;api&lt;/configuration&gt;
+    &lt;configuration key="mimetype"&gt;application/json&lt;/configuration&gt;
+    &lt;configuration key="source-tags"&gt;engage-download,engage-streaming&lt;/configuration&gt;
+    &lt;configuration key="url-pattern"&gt;https://HOSTNAME/paella/ui/watch.html?id=${event_id}&lt;/configuration&gt;
+    &lt;configuration key="with-published-elements"&gt;false&lt;/configuration&gt;
+    &lt;configuration key="check-availability"&gt;true&lt;/configuration&gt;
   &lt;/configurations&gt;
 &lt;/operation&gt;
 </code></pre></div>

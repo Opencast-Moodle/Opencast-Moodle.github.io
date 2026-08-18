@@ -254,8 +254,8 @@ as well as properties for those transcription files.</p>
 * <code>ROLE_UI_EVENTS_DETAILS_MEDIA_VIEW</code>
 * <code>ROLE_GROUP_MH_DEFAULT_ORG_SYSTEM_ADMINS</code></p>
 <p>For the setting <em>workflow for transcription</em> and for the setting <em>workflow for delete transcription</em> the following sample Opencast workflow <em>Republish metadata and captions</em> may be used:
-<div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;definition xmlns=&quot;http://workflow.opencastproject.org&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;definition xmlns="http://workflow.opencastproject.org"&gt;
 
   &lt;id&gt;republish-metadata-and-captions&lt;/id&gt;
   &lt;title&gt;Republish metadata and captions&lt;/title&gt;
@@ -268,25 +268,25 @@ as well as properties for those transcription files.</p>
     &lt;!-- Publish to engage player --&gt;
 
     &lt;operation
-      id=&quot;publish-engage&quot;
-      exception-handler-workflow=&quot;partial-error&quot;
-      description=&quot;Update recording in Opencast Media Module&quot;&gt;
+      id="publish-engage"
+      exception-handler-workflow="partial-error"
+      description="Update recording in Opencast Media Module"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;download-source-flavors&quot;&gt;dublincore/*,security/*,captions/*&lt;/configuration&gt;
-        &lt;configuration key=&quot;strategy&quot;&gt;merge&lt;/configuration&gt;
-        &lt;configuration key=&quot;check-availability&quot;&gt;false&lt;/configuration&gt;
+        &lt;configuration key="download-source-flavors"&gt;dublincore/*,security/*,captions/*&lt;/configuration&gt;
+        &lt;configuration key="strategy"&gt;merge&lt;/configuration&gt;
+        &lt;configuration key="check-availability"&gt;false&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 
     &lt;!-- Clean up work artifacts --&gt;
 
     &lt;operation
-        id=&quot;cleanup&quot;
-        fail-on-error=&quot;false&quot;
-        description=&quot;Remove temporary processing artifacts&quot;&gt;
+        id="cleanup"
+        fail-on-error="false"
+        description="Remove temporary processing artifacts"&gt;
       &lt;configurations&gt;
-        &lt;configuration key=&quot;delete-external&quot;&gt;true&lt;/configuration&gt;
-        &lt;configuration key=&quot;preserve-flavors&quot;&gt;security/*&lt;/configuration&gt;
+        &lt;configuration key="delete-external"&gt;true&lt;/configuration&gt;
+        &lt;configuration key="preserve-flavors"&gt;security/*&lt;/configuration&gt;
       &lt;/configurations&gt;
     &lt;/operation&gt;
 

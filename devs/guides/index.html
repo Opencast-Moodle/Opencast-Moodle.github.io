@@ -101,7 +101,7 @@ The process typically follows these stages:</p>
 
 <span class="x">$api = api::get_instance($ocinstanceid);</span>
 <span class="x">$response = $api-&gt;opencastapi-&gt;eventsApi-&gt;getAll(...);</span>
-<span class="x">$code = $response[&#39;code&#39;];</span>
+<span class="x">$code = $response['code'];</span>
 
 <span class="x">if ($code != 200) {</span>
 <span class="x">  throw new opencast_api_response_exception($response);</span>

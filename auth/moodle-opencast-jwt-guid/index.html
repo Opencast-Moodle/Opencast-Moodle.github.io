@@ -113,14 +113,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>There is a small structural catch here: Opencast&rsquo;s token authentication layer expects public keys delivered as a JSON Web Key <strong>Set</strong> (JWKS) array, whereas the tool outputs a single standalone JSON Web Key (JWK) object.</p>
 <p>To resolve this, you must wrap your generated key inside a <code>keys</code> array wrapper. Create a file named <strong><code>jwks.json</code></strong> and structure it exactly like the template below, pasting the complete text block from your generated <code>opencast_public.jwk.json</code> file directly into the placeholder:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="c1">// This object should be replaced.</span>
-<span class="w">            </span><span class="nt">&quot;kty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EC&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;use&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sig&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;alg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ES256&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;crv&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P-256&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">            </span><span class="nt">"kty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EC"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sig"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ES256"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"crv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P-256"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
@@ -129,7 +129,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h3 id="step-2-publish-your-jwks-endpoint">Step 2: Publish Your JWKS Endpoint</h3>
 <p>Host your newly generated <code>jwks.json</code> file on your LMS web server so it can be automatically fetched over HTTPS by external validators. It should resolve at a standard public location, typically matching a well-known path structure:</p>
 <p><code>https://{your-moodle-domain}/.well-known/jwks.json</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create the .well-known directory if it doesn&#39;t exist</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the .well-known directory if it doesn't exist</span>
 sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/www/html/.well-known
 
 <span class="c1"># Move and rename your public JWKS file there</span>
@@ -146,7 +146,7 @@ server<span class="w"> </span><span class="o">{</span>
 <span class="w">    </span>location<span class="w"> </span>/.well-known/jwks.json<span class="w"> </span><span class="o">{</span>
 <span class="w">        </span>default_type<span class="w"> </span>application/json<span class="p">;</span>
 <span class="w">        </span><span class="c1"># Optional: Add CORS headers if external APIs need to fetch it</span>
-<span class="w">        </span>add_header<span class="w"> </span>Access-Control-Allow-Origin<span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">;</span>
+<span class="w">        </span>add_header<span class="w"> </span>Access-Control-Allow-Origin<span class="w"> </span><span class="s2">"*"</span><span class="p">;</span>
 <span class="w">    </span><span class="o">}</span>
 <span class="o">}</span>
 ...
